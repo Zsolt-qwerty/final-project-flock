@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import styles from "./EventCarousel.module.css"
+
+//This is the event Carousel for the each hub
+//It cycles through these hard coded events for stamps atm
 
 const events = [
   {
@@ -45,13 +49,12 @@ export default function EventCarousel() {
   };
 
   return (
-    <div className="carousel">
+    <div className={styles.Carousel}>
       <h2>Upcoming Stamp Events</h2>
-      <div className="carousel-container">
+      <div className={styles.CarouselContainer}>
         <button onClick={prevEvent}>&#10094;</button>
 
-        <div className="event">
-          <img src={events[currentIndex].image} alt={events[currentIndex].title} />
+        <div className={styles.event}>
           <h3>{events[currentIndex].title}</h3>
           <p><strong>Date:</strong> {events[currentIndex].date}</p>
           <p>{events[currentIndex].description}</p>
