@@ -30,9 +30,15 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     needs: test
-    if: github.event_name == 'pull_request' && success()
-
+    if: always() && github.event_name == 'pull_request'  
     steps:
+      - name: Check test status
+        run: |
+          if [[ "${{ needs.test.result }}" != "success" ]]; then
+            echo "❌ Tests failed. Merge aborted."
+            exit 1
+          fi
+
       - name: Merge pull request
         uses: peter-evans/merge-pull-request@v2
         with:
@@ -43,9 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     if: failure()  # This step runs only if tests fail
-
     steps:
       - name: Send alert
         run: |
-          echo "Tests failed. Please address the errors before merging."
-          
+          echo "❌ Tests failed! Fix the errors before merging."
