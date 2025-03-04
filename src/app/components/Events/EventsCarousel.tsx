@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./EventCarousel.module.css"
+// import styles from "./SingleHub.module.css"
+//imported from the styles Single Modules as well ^ 
 
 //This is the event Carousel for the each hub
 //It cycles through these hard coded events for stamps atm
