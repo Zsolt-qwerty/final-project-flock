@@ -1,9 +1,6 @@
-name: Run Tests on Push
+name: Test and Merge
 
 on:
-  push:
-    branches:
-      - main  # Change this to your default branch
   pull_request:
     branches:
       - main
@@ -13,20 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
-          node-version: 20  # Use your project's Node.js version
+          node-version: '20' 
 
       - name: Install dependencies
-        run: npm install  # or yarn install
+        run: npm install  
 
       - name: Run tests
-        run: npm test  # or yarn test
+        run: npm test  
 
-      - name: Fail if test fails
-        if: failure()
-        run: exit 1
+  merge:
+    runs-on: ubuntu-latest
+    needs: test
+    if: success()  # This ensures the merge only happens if the tests pass
+
+    steps:
+      - name: Merge pull request
+        uses: peter-evans/merge-pull-request@v2
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  alert:
+    runs-on: ubuntu-latest
+    needs: test
+    if: failure()  # This step runs only if tests fail
+
+    steps:
+      - name: Send alert
+        run: |
+          echo "Tests failed. Please address the errors before merging."
+          
