@@ -1,26 +1,15 @@
-// 'use client';
-// import React from 'react';
 //This file defines a React component called SingleHub. Its role is to serve as the page component for the /SingleHub route. This file defines a React component called SingleHub.
-// Its role is to serve as the page component for the /SingleHub route. 
+// Its role is to serve as the page component for the /SingleHub route.
 
 // Post Creation – Users can create new discussion threads.
 // Commenting – Users can reply to posts.
 // Data Storage – Store posts and comments(When you have added the database element)
 
-// const SingleHub = () => {
-//   return (
-//     <div>
-//       <h1>Welcome to the Stamps Hub Page</h1>
-//     </div>
-//   );
-// };
-
-// export default SingleHub;
-
 "use client";
 import { useState } from "react";
 // import "./forum.css"; // Import CSS file
-import EventCarousel from "./components/Events/EventsCarousel";
+import EventCarousel from "../components/Events/EventsCarousel";
+import styles from "./SingleHub.module.css";
 
 interface Post {
   id: number;
@@ -61,53 +50,58 @@ export default function SingleHub() {
   };
 
   return (
-    <div className="forum-container">
-      <h1>Forum Board</h1>
+    <div>
+      <h1 className={styles.Header}>Forum Board</h1>
+       <div className={styles.ForumContainer}>
+        <div className={styles.ForumBoard}>
+        {/* Display Posts */}
+        {posts.map((post) => (
+          <div key={post.id} className="post">
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
 
-      {/* Display Posts */}
-      {posts.map((post) => (
-        <div key={post.id} className="post">
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
-
-          {/* Comments Section */}
-          <div className="comments-section">
-            <h3>Comments:</h3>
-            {post.comments.map((comment, index) => (
-              <p key={index} className="comment">- {comment}</p>
-            ))}
-            <input
-              type="text"
-              placeholder="Write a comment..."
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && e.currentTarget.value.trim()) {
-                  handleAddComment(post.id, e.currentTarget.value);
-                  e.currentTarget.value = "";
-                }
-              }}
-            />
+            {/* Comments Section */}
+            <div className={styles.CommentsSection}>
+              <h3>Comments:</h3>
+              {post.comments.map((comment, index) => (
+                <p key={index} className={styles.CommentName}>
+                  - {comment}
+                </p>
+              ))}
+              <input
+                type="text"
+                placeholder="Write a comment..."
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && e.currentTarget.value.trim()) {
+                    handleAddComment(post.id, e.currentTarget.value);
+                    e.currentTarget.value = "";
+                  }
+                }}
+              />
+            </div>
           </div>
+        ))}
+        {/* Create Post */}
+        <div className={styles.PostCreator}>
+          <h2>Create a Post</h2>
+          <input
+            type="text"
+            placeholder="Post title"
+            value={newPostTitle}
+            onChange={(e) => setNewPostTitle(e.target.value)}
+          />
+          <textarea
+            placeholder="Write your post..."
+            rows={4}
+            value={newPostContent}
+            onChange={(e) => setNewPostContent(e.target.value)}
+          />
+          <button onClick={handleAddPost}>Post</button>
         </div>
-      
-      ))}{/* Create Post */}
-      <div className="post-creator">
-      <h2>Create a Post</h2>
-      <input
-        type="text"
-        placeholder="Post title"
-        value={newPostTitle}
-        onChange={(e) => setNewPostTitle(e.target.value)}
-      />
-      <textarea
-        placeholder="Write your post..."
-        rows={4}
-        value={newPostContent}
-        onChange={(e) => setNewPostContent(e.target.value)}
-      />
-      <button onClick={handleAddPost}>Post</button>
+        <div className={styles.EventCarousel}></div>
+      </div>
+      <EventCarousel />
     </div>
-    <EventCarousel />
     </div>
-
   );
 }
