@@ -56,7 +56,7 @@ export default function SingleHub() {
         <div className={styles.ForumBoard}>
         {/* Display Posts */}
         {posts.map((post) => (
-          <div key={post.id} className="post">
+          <div key={post.id} className={styles.Post}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
 

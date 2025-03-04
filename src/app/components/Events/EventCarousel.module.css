@@ -1,0 +1,6 @@
+.Carousel {
+  flex: 1; /* Takes less space */
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 30px;
+}

@@ -3,17 +3,26 @@
     flex-direction: row;
     gap: 20px;  /* Adds spacing between items */
     width: 100%;  /* Ensures it takes full width */
-    background-color: blue;
 }
 
 .ForumBoard {
     flex: 2;  /* Takes more space */
     border: 1px solid #ddd;
     padding: 10px;
+    border-radius: 30px;
 }
 
 .Carousel {
     flex: 1;  /* Takes less space */
     border: 1px solid #ddd;
     padding: 10px;
+    border-radius: 30px;
+}
+.PostCreator{
+    display: flex;
+    flex-direction: column;
+}
+
+.Post{
+    background-color: white;
 }
