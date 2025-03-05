@@ -1,4 +1,5 @@
 import styles from "./AboutUs.module.css";
+import Image from "next/image";
 // This component serves as the About us for the route (/about-us).
 
 export default function AboutUs() {
@@ -39,7 +40,7 @@ export default function AboutUs() {
         </div>
       </section>
       <section className={styles.imageSection}>
-        <img src="/interim-image.png" alt="Interim" />
+        <Image src="/interim-image.png" alt="Interim" width={2240} height={800} />
         <blockquote className={styles.pullQuote}>
           &quot;Connecting people through shared interests.&quot;
         </blockquote>
