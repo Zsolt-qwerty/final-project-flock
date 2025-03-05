@@ -9,7 +9,7 @@ export default async function Interests() {
 };
 
 // Query for search bar on Hubs page
-async function InterestSearch(search: string) {
+export async function InterestSearch(search: string) {
     // call to the server which accesses the database via the keys
     const supabase = await createClient();
     //Queries the table with our given parameter
