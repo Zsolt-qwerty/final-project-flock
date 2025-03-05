@@ -1,4 +1,4 @@
-import styles from "./Rules.modules.css";
+import styles from "./Rules.module.css";
 
 export default function CommunityRules(){
 
