@@ -1,0 +1,22 @@
+.buttonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70vw;
+  height: 50vh;
+  flex-wrap: wrap;
+}
+
+.hubButton {
+  padding: 20px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  border-radius: 30px;
+  font-family: "N-Light";
+  font-size: 18px;
+  background-color: #dfdfdf;
+  border: none;
+}

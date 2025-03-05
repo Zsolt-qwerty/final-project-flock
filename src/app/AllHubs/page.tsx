@@ -3,7 +3,7 @@ import AllHubContainer from "../components/AllHubsContainer/AllHubsContainer";
 import styles from "./AllHubs.module.css";
 import AllHubsSearchBar from "./AllHubsSearchBar/AllHubsSearchBar";
 
-export default function AllHubsPage() {
+const AllHubsPage: React.FC = () => {
   return (
     <main className={styles.allHubsDiv}>
       <div className={styles.bannerDiv}>
@@ -17,7 +17,11 @@ export default function AllHubsPage() {
           <p className={styles.flockLogo}>FLOCK</p>
         </div>
       </div>
-      <AllHubContainer />
+      <div className={styles.cardDiv}>
+        <AllHubContainer />
+      </div>
     </main>
   );
-}
+};
+
+export default AllHubsPage;

@@ -3,7 +3,7 @@ import styles from "./AllHubsSearchBar.module.css";
 
 const AllHubsSearchBar: React.FC = () => {
   return (
-    <form className={styles.searchInput}>
+    <form>
       <input
         className={styles.searchInput}
         type="text"
