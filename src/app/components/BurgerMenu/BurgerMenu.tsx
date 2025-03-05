@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function BurgerMenu() {
   const [open, setOpen] = useState(false);
   return (
-    <nav>
+    <nav className={styles.navContainer}>
       {!open && (
         <button className={styles.menuButton} onClick={() => setOpen(!open)}>
           ☰
@@ -24,6 +24,9 @@ export default function BurgerMenu() {
             </li>
             <li className={`${styles.bmListItems} ${styles.HubsItem}`}>
               <Link href="/Hubs">All Hubs</Link>
+            </li>
+            <li className={`${styles.bmListItems} ${styles.profileItem}`}>
+              <p>Profile</p>
             </li>
             <li className={`${styles.bmListItems} ${styles.aboutItem}`}>
               <Link href="/AboutUs">About us</Link>

@@ -1,0 +1,16 @@
+/* .searchBarContainer {
+  width: 40vw;
+  height: 15vh;
+} */
+
+.inputBox {
+  width: 40vw;
+  padding: 10px;
+  font-family: "N-Light";
+  border: none;
+  border-radius: 20px;
+}
+
+.inputBox::placeholder {
+  color: gray; /* Change to your desired color */
+}

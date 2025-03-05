@@ -1,17 +1,26 @@
+.navContainer {
+  background-color: transparent;
+  position: absolute;
+  width: 800px;
+}
+
 .menuContainer {
   width: 20vw;
   height: 100vh;
-  background: white;
+  background-color: transparent;
   border-right: solid 0.1em black;
   display: flex;
   flex-direction: column;
   transition: transform 0.5s ease-in-out;
   font-family: "N-light";
   overflow: hidden;
+  color: red;
+  position: fixed; /* Fix the position relative to the viewport */
+  z-index: 1000; /* Ensure it appears above other content */
+  background-color: #f8f5f3;
 }
 
 .menuButton {
-  background-color: white;
   background: none;
   border: none;
   font-size: 24px;
@@ -53,6 +62,10 @@
 
 .homeItem:hover {
   background-color: #ffd955;
+}
+
+.profileItem:hover {
+  background-color: #ff8534;
 }
 
 .loginButton {

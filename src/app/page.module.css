@@ -1,0 +1,40 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8f5f3;
+}
+
+.navLogoContainer {
+  display: flex;
+  height: 15vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerLogo {
+  margin-left: auto;
+}
+
+.flockText {
+  font-family: "N-ExtraBold";
+  font-size: 50px;
+  margin-right: 20px;
+  padding-bottom: 10px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 30vw;
+  height: 10vh;
+  display: flex;
+}
+.searchBarContainer {
+  display: flex;
+  height: 10vh;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 70vw;
+}
