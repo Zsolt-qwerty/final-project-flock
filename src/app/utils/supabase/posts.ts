@@ -1,10 +1,8 @@
 import { createClient } from './server';
 
 interface Post {
-    id: number;
-    title: string;
-    content: string;
-    comments: string[];
+    post_id: string;
+    written_text: string;
 };
 
 // See all comments filtered by interest
