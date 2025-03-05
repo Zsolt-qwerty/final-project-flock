@@ -1,0 +1,59 @@
+/* .Profile{
+    display: flex;
+    flex-direction: column;
+    background-color: #dfdfdf;
+}  */
+body {
+  background-color: #dfdfdf;
+}
+
+.profileImage {
+  border-radius: 50%;
+}
+
+.intro {
+  border: 1px solid #ddd;
+  padding: 50px;
+  padding-right: 600px;
+  border-radius: 30px;
+  background-color: white;
+  font-family: "N-Light";
+}
+.banner {
+  display: flex;
+  flex-direction: row;
+  background-color: #275aff;
+  background: linear-gradient(to bottom, #275aff 60%, #dfdfdf 40%);
+  padding: 100px;
+  gap: 50px;
+}
+.favHubs {
+  display: flex;
+  border: 1px solid #ddd;
+  padding: 50px;
+  padding-right: 500px;
+  border-radius: 30px;
+  font-family: "N-Bold";
+  background-color: white;
+  /* margin-top: 30px; */
+}
+
+.button {
+  font-family: "N-Bold";
+}
+
+.buttonContainer {
+  display: flex;
+  border: 1px solid #ddd;
+  padding: 80px 100px 80px 100px;
+  background-color: white;
+  border-radius: 20%;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 2%;
+  justify-items: center;
+}
