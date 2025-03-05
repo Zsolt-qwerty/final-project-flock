@@ -20,7 +20,7 @@ export default function BioCard({
   handleCancel,
 }: BioCardProps) {
   return (
-    <div className={styles.intro}>
+    <div className={styles.bioCardContainer}>
       {isEditing ? (
         <>
           <label>Name:</label>
@@ -48,16 +48,17 @@ export default function BioCard({
       ) : (
         <>
           <p>
-            <strong>Name:</strong> Lara Thompson
-          </p>
-          <p>
-            <strong>Email:</strong> lara97@hotmail.co.uk
-          </p>
-          <p>
-            <strong>Bio:</strong> Hi I&apos;m Lara 🌸
+            <span className={styles.boldBio}></span> Hi I&apos;m Lara 🌸
           </p>
           <p>I&apos;m based in the UK!</p>
           <p>I love stamp collecting and Art!</p>
+          <br />
+          <p>
+            <span className={styles.boldBio}>Name:</span> Lara Thompson
+          </p>
+          <p>
+            <span className={styles.boldBio}>Email:</span> lara97@hotmail.co.uk
+          </p>
         </>
       )}
     </div>

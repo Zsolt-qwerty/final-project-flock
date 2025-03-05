@@ -51,27 +51,33 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className={styles.profile}>
-      <Image
-        className={styles.profileImage}
-        src="/Profile/ProfileImagePlaceholder.png"
-        alt="placeholder image for the profile picture"
-        width={200}
-        height={200}
-      />
-      <BioCard
-        user={user}
-        editedUser={editedUser}
-        isEditing={isEditing}
-        handleChange={handleChange}
-        handleSave={handleSave}
-        handleCancel={handleCancel}
-      />
+    <div className={styles.profileContainer}>
+      <div className={styles.banner}></div>
+      <div className={styles.imageEditingContainer}>
+        <div className={styles.imageContainer}>
+          <Image
+            className={styles.profileImage}
+            src="/avatar.png"
+            alt="placeholder image for the profile picture"
+            width={200}
+            height={200}
+          />
+        </div>
+        <EditingCard isEditing={isEditing} setIsEditing={setIsEditing} />
+      </div>
+      <div className={styles.bioHubsContainer}>
+        <BioCard
+          user={user}
+          editedUser={editedUser}
+          isEditing={isEditing}
+          handleChange={handleChange}
+          handleSave={handleSave}
+          handleCancel={handleCancel}
+        />
 
-      <EditingCard isEditing={isEditing} setIsEditing={setIsEditing} />
-
-      <h3>Joined Hubs:</h3>
-      <HubContainer />
+        <h3>Joined Hubs:</h3>
+        <HubContainer />
+      </div>
     </div>
   );
 }

@@ -1,19 +1,68 @@
 .profileContainer {
   display: flex;
+  height: 100vh;
+  background-color: #f8f5f3;
+  position: relative; /* Ensures the banner is positioned inside this container */
 }
 
-.profileImage {
-  border-radius: 50%;
+.banner {
+  background-color: #275aff;
+  width: 100vw;
+  height: 35vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Send it to the back */
 }
 
-.intro {
+.imageEditingContainer {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  .imageContainer {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+
+  .profileImage {
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.bioHubsContainer {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* .intro {
   border: 1px solid #ddd;
   padding: 50px;
   padding-right: 600px;
   border-radius: 30px;
   background-color: white;
   font-family: "N-Light";
-}
+} */
 /* .banner {
   display: flex;
   flex-direction: row;

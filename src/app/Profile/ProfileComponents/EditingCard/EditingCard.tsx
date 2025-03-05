@@ -10,9 +10,9 @@ export default function EditingCard({
   setIsEditing,
 }: EditingCardProps) {
   return (
-    <div className={styles.buttonContainer}>
+    <div className={styles.editingContainer}>
       <button
-        className={styles.button}
+        className={styles.editingButton}
         onClick={() => setIsEditing(!isEditing)}
       >
         Edit Profile

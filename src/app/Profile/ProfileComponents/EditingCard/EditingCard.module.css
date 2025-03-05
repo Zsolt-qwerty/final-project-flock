@@ -1,0 +1,20 @@
+.editingContainer {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 60px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 300px;
+  margin: 20px 30px 0px 30px;
+}
+
+.editingButton {
+  background-color: #dfdfdf;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-family: "N-light";
+  width: 100px;
+}
