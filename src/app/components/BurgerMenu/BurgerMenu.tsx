@@ -7,12 +7,16 @@ export default function BurgerMenu() {
   return (
     <nav>
       {!open && (
-        <button onClick={() => setOpen(!open)}>☰</button> // Only show the button when menu is closed
+        <button className={styles.menuButton} onClick={() => setOpen(!open)}>
+          ☰
+        </button> // Only show the button when menu is closed
       )}
 
       {open && (
         <div className={styles.menuContainer}>
-          <button onClick={() => setOpen(!open)}>☰</button>
+          <button className={styles.menuButton} onClick={() => setOpen(!open)}>
+            x
+          </button>
           <ul>
             <li>Home</li>
             <li>Profile</li>

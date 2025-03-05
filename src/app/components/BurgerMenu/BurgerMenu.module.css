@@ -1,21 +1,22 @@
 .menuContainer {
-  width: 30vh;
+  width: 20vw;
   height: 100vh;
   background: white;
-  border: solid 0.1em black;
+  border-right: solid 0.1em black;
   position: absolute;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  font-family: "N-light";
 }
 
-/* .open {
-  transform: translateX(0); /* Slide menu in */
-
 .menuButton {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  background-color: white;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 24px;
+  margin: 4px;
   cursor: pointer;
+  padding-top: 0;
+  padding: 0px 6px 3px 6px;
+  border: none;
+  border-radius: 10px;
 }
