@@ -74,9 +74,10 @@ export default function ProfilePage() {
           handleSave={handleSave}
           handleCancel={handleCancel}
         />
-
-        <h3>Joined Hubs:</h3>
-        <HubContainer />
+        <div className={styles.favHubsContainer}>
+          <h3>Joined Hubs:</h3>
+          <HubContainer />
+        </div>
       </div>
     </div>
   );

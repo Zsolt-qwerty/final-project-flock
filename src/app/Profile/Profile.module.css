@@ -16,18 +16,22 @@
 }
 
 .imageEditingContainer {
-  width: 40vw;
+  width: 30vw;
   display: flex;
+  padding-right: 40px;
   flex-direction: column;
   height: 100vh;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   position: relative;
   z-index: 1;
 
   .imageContainer {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+    padding-right: 10px;
+    margin-right: 25px;
+    margin-bottom: 20px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -37,8 +41,9 @@
   }
 
   .profileImage {
-    width: 110%;
-    height: 110%;
+    width: 115%;
+    height: 115%;
+    padding-left: 8px;
     object-fit: cover;
     border-radius: 50%;
   }
@@ -50,9 +55,24 @@
   flex-direction: column;
   height: 100vh;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 15vh;
   position: relative;
   z-index: 1;
+}
+
+.favHubsContainer {
+  background-color: white;
+  width: 50vw;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 40px;
+  height: 30vh;
+  overflow: hidden;
+  font-family: "N-light";
+  font-size: 18px;
+  letter-spacing: 0.02rem;
+  line-height: 110%;
 }
 
 /* .intro {
