@@ -1,107 +1,127 @@
-//This file defines a React component called SingleHub. Its role is to serve as the page component for the /SingleHub route. This file defines a React component called SingleHub.
-// Its role is to serve as the page component for the /SingleHub route.
-
-// Post Creation – Users can create new discussion threads.
-// Commenting – Users can reply to posts.
-// Data Storage – Store posts and comments(When you have added the database element)
-
 "use client";
-import { useState } from "react";
-// import "./forum.css"; // Import CSS file
+import { useState, useEffect } from "react";
 import EventCarousel from "../components/Events/EventsCarousel";
 import styles from "./SingleHub.module.css";
 
 interface Post {
-  id: number;
-  title: string;
-  content: string;
-  comments: string[];
+    post_id: string;
+    written_text: string;
+    comments: string[]; // Add comments array to each post
 }
 
 export default function SingleHub() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [newPostTitle, setNewPostTitle] = useState("");
-  const [newPostContent, setNewPostContent] = useState("");
+    const [posts, setPosts] = useState<Post[]>([]);
+    const [newPostTitle, setNewPostTitle] = useState("");
+    const [newPostContent, setNewPostContent] = useState("");
+    const [newComment, setNewComment] = useState(""); // For managing new comment input
 
-  // Add new post
-  const handleAddPost = () => {
-    if (newPostTitle.trim() && newPostContent.trim()) {
-      const newPost: Post = {
-        id: posts.length + 1,
-        title: newPostTitle,
-        content: newPostContent,
-        comments: [],
-      };
-      setPosts([newPost, ...posts]);
-      setNewPostTitle("");
-      setNewPostContent("");
-    }
-  };
+    // Fetch posts
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await fetch('/api/posts?interest_id=1');
+                const fetchedPosts = await response.json();
+                setPosts(
+                    Array.isArray(fetchedPosts)
+                        ? fetchedPosts.map(post => ({
+                            ...post,
+                            comments: Array.isArray(post.comments) ? post.comments : [],
+                        }))
+                        : []
+                );
+            } catch (error) {
+                console.error("Failed to fetch posts:", error);
+                setPosts([]);
+            }
+        };
+        fetchPosts();
+    }, []);
 
-  // Add new comment
-  const handleAddComment = (postId: number, comment: string) => {
-    setPosts(
-      posts.map((post) =>
-        post.id === postId
-          ? { ...post, comments: [...post.comments, comment] }
-          : post
-      )
-    );
-  };
+    // Add new post
+    const handleAddPost = () => {
+        if (newPostTitle.trim() && newPostContent.trim()) {
+            const newPost: Post = {
+                post_id: (posts.length + 1).toString(),
+                written_text: newPostContent,
+                comments: [],
+            };
+            setPosts([newPost, ...posts]);
+            setNewPostTitle("");
+            setNewPostContent("");
+        }
+    };
 
-  return (
-    <div>
-      <h1 className={styles.Header}>Forum Board</h1>
-       <div className={styles.ForumContainer}>
-        <div className={styles.ForumBoard}>
-        {/* Display Posts */}
-        {posts.map((post) => (
-          <div key={post.id} className={styles.Post}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
+    // Add new comment to a post
+    const handleAddComment = (postId: string, comment: string) => {
+        setPosts(
+            posts.map((post) =>
+                post.post_id === postId
+                    ? { ...post, comments: [...post.comments, comment] }
+                    : post
+            )
+        );
+        setNewComment(""); // Reset the new comment input field
+    };
 
-            {/* Comments Section */}
-            <div className={styles.CommentsSection}>
-              <h3>Comments:</h3>
-              {post.comments.map((comment, index) => (
-                <p key={index} className={styles.CommentName}>
-                  - {comment}
-                </p>
-              ))}
-              <input
-                type="text"
-                placeholder="Write a comment..."
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && e.currentTarget.value.trim()) {
-                    handleAddComment(post.id, e.currentTarget.value);
-                    e.currentTarget.value = "";
-                  }
-                }}
-              />
+    return (
+        <div>
+            <h1 className={styles.Header}>Forum Board</h1>
+            <div className={styles.ForumContainer}>
+                <div className={styles.ForumBoard}>
+                    {posts.map((post) => (
+                        <div key={post.post_id} className={styles.Post}>
+                            {/* <h2>{post.title}</h2> */}
+                            <p>{post.written_text}</p>
+
+                            {/* Comments Section */}
+                            <div className={styles.CommentsSection}>
+                                <h3>Comments:</h3>
+                                {post.comments.length > 0 ? (
+                                    post.comments.map((comment, index) => (
+                                        <p key={`${post.post_id}-${index}`} className={styles.CommentName}>
+                                            - {comment}
+                                        </p>
+                                    ))
+                                ) : (
+                                    <p>No comments yet.</p>
+                                )}
+
+                                {/* Comment input for each post */}
+                                <input
+                                    type="text"
+                                    value={newComment}
+                                    placeholder="Write a comment..."
+                                    onChange={(e) => setNewComment(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" && newComment.trim()) {
+                                            handleAddComment(post.post_id, newComment.trim());
+                                        }
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Create Post Section */}
+                <div className={styles.PostCreator}>
+                    <h2>Create a Post</h2>
+                    <input
+                        type="text"
+                        placeholder="Post title"
+                        value={newPostTitle}
+                        onChange={(e) => setNewPostTitle(e.target.value)}
+                    />
+                    <textarea
+                        placeholder="Write your post..."
+                        rows={4}
+                        value={newPostContent}
+                        onChange={(e) => setNewPostContent(e.target.value)}
+                    />
+                    <button onClick={handleAddPost}>Post</button>
+                </div>
             </div>
-          </div>
-        ))}
-        {/* Create Post */}
-        <div className={styles.PostCreator}>
-          <h2>Create a Post</h2>
-          <input
-            type="text"
-            placeholder="Post title"
-            value={newPostTitle}
-            onChange={(e) => setNewPostTitle(e.target.value)}
-          />
-          <textarea
-            placeholder="Write your post..."
-            rows={4}
-            value={newPostContent}
-            onChange={(e) => setNewPostContent(e.target.value)}
-          />
-          <button onClick={handleAddPost}>Post</button>
+            <EventCarousel />
         </div>
-        <div className={styles.EventCarousel}></div>
-      </div>
-      <EventCarousel />
-    </div>
-    </div>
-  );
+    );
 }

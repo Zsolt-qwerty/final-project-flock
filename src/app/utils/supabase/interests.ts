@@ -1,7 +1,7 @@
 import { createClient } from './server';
 
 // Query for Hubs page which shows all of the available interests, to be used as buttons
-export default async function Interests() {
+export async function interests() {
     const supabase = await createClient();
     const { data: interests } = await supabase.from("interests").select();
 
@@ -9,7 +9,7 @@ export default async function Interests() {
 };
 
 // Query for search bar on Hubs page
-async function InterestSearch(search: string) {
+export async function interestSearch(search: string) {
     // call to the server which accesses the database via the keys
     const supabase = await createClient();
     //Queries the table with our given parameter
