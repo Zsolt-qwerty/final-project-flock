@@ -1,4 +1,4 @@
-import { createClient } from '../utils/supabase/server';
+// import { createClient } from '../utils/supabase/server';
 
 // Example function which fetches an single location from event table
 // export default async function GetEventByLocation() {
