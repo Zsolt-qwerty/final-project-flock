@@ -1,4 +1,5 @@
 import styles from "./AboutUs.module.css";
+import Image from "next/image";
 // This component serves as the About us for the route (/about-us).
 
 export default function AboutUs() {
@@ -8,16 +9,16 @@ export default function AboutUs() {
         <h1 className={styles.header}>find your Flock...</h1>
         <p>The idea for Flock was inspired by the fact that millions of people in the UK are significantly affected by loneliness.</p>
         <p>Many organisations are already doing amazing work to help address this complex issue.</p>
-        <p>We know we can't solve it with this community. But we wanted to create a space that:</p>
+        <p>We know we can&apos;t solve it with this community. But we wanted to create a space that:</p>
         <ul>
           <li>connects you to others through shared interests</li>
           <li>is safe and welcoming</li>
           <li>guides you in starting conversations with others, and</li>
-          <li>supports you to attend events and meet-ups in the real world (if that's what you want to do)</li>
+          <li>supports you to attend events and meet-ups in the real world (if that&apos;s what you want to do)</li>
         </ul>
         <div>
-          <h2>It's difficult to reach out</h2>
-          <p>There are numerous reasons why people feel isolated and lonely. Some of us feel happy to chat but maybe haven't found the right place to meet.</p>
+          <h2>It&apos;s difficult to reach out</h2>
+          <p>There are numerous reasons why people feel isolated and lonely. Some of us feel happy to chat but maybe haven&apos;t found the right place to meet.</p>
           <p>Others may find it difficult striking up a conversation. We hope that we can help some of you to find your flock in a safe and easy way.</p>
         </div>
         <div>
@@ -27,7 +28,7 @@ export default function AboutUs() {
           <ul>
             <li>Oliver Hopwood</li>
             <li>Sarah Hunt</li>
-            <li>Christopher O'Conner</li>
+            <li>Christopher O&apos;Conner</li>
             <li>Zsolt Peter</li>
             <li>Hope Pichur</li>
             <li>Caitlin Young</li>
@@ -39,9 +40,9 @@ export default function AboutUs() {
         </div>
       </section>
       <section className={styles.imageSection}>
-        <img src="/interim-image.png" alt="Interim" />
+        <Image src="/interim-image.png" alt="Interim" width={2240} height={800} />
         <blockquote className={styles.pullQuote}>
-          "Connecting people through shared interests."
+          &quot;Connecting people through shared interests.&quot;
         </blockquote>
       </section>
     </div>

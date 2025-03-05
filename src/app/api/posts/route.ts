@@ -18,7 +18,7 @@ export async function GET(request: Request) {
         const posts = await getPostsByInterest(interest_id);
         return NextResponse.json(posts, { status: 200 });
     } catch (error) {
-        return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 });
+        return NextResponse.json({ error: `Failed to fetch posts: ${error}` }, { status: 500 });
     }
 }
 
@@ -72,9 +72,9 @@ export async function POST(request: Request) {
         );
 
     } catch (error) {
-        console.error('Post creation error:', error);
+        console.error(`Post creation error: ${error}`);
         return NextResponse.json(
-            { error: 'Internal server error' },
+            { error: `Internal server error: ${error}` },
             { status: 500 }
         );
     }
