@@ -5,7 +5,7 @@ import styles from "./Profile.module.css";
 import Image from "next/image";
 import BioCard from "./ProfileComponents/BioCard/BioCard";
 import EditingCard from "./ProfileComponents/EditingCard/EditingCard";
-interface User {
+/*export */interface User {
   name: string;
   email: string;
   bio: string;
@@ -58,7 +58,7 @@ export default function ProfilePage() {
       </div>
       <div className={styles.bioHubsContainer}>
         <BioCard
-          user={user}
+          // user={user}
           editedUser={editedUser}
           isEditing={isEditing}
           handleChange={handleChange}
