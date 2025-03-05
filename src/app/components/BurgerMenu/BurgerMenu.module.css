@@ -1,0 +1,21 @@
+.menuContainer {
+  width: 30vh;
+  height: 100vh;
+  background: white;
+  border: solid 0.1em black;
+  position: absolute;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* .open {
+  transform: translateX(0); /* Slide menu in */
+
+.menuButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
