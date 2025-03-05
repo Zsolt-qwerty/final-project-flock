@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 @font-face {
   font-family: "J-Bold";
   src: url("/Junicode/Junicode-Bold.ttf");
@@ -48,6 +53,7 @@
   src: url("/Nohemi/Nohemi-Thin.ttf");
 }
 
-h1 {
-  font-family: "N-Light";
+a {
+  text-decoration: none;
+  color: inherit; /* Makes the link inherit the text color from its parent */
 }
