@@ -1,12 +1,12 @@
-// import { createClient } from '../utils/supabase/server';
+import { createClient } from '../utils/supabase/server';
 
-// // Example function which fetches an single location from event table
-// export default async function GetEventByLocation() {
-//     const supabase = await createClient();
-//     const { data: event } = await supabase.from("event").select("event_location");
+// Example function which fetches an single location from event table
+export default async function GetEventByLocation() {
+    const supabase = await createClient();
+    const { data: event } = await supabase.from("event").select("event_location");
 
-//     return <pre>{JSON.stringify(event, null, 2)}</pre>
-// };
+    return <pre>{JSON.stringify(event, null, 2)}</pre>
+};
 
 
 // // Query to show events, users and comments under a specific interest/Hub
