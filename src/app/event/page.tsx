@@ -13,3 +13,11 @@ import { getEventsByInterest } from "../utils/supabase/events"
 
 const events = await getEventsByInterest("stamps");
 console.log(events);
+
+export default function event() {
+    return (
+        <main>
+            <center><h1>event</h1></center>
+        </main>
+    );
+}
