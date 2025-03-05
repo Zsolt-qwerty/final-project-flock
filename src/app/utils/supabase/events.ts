@@ -48,4 +48,4 @@ export async function AddEvent(/*Interest: string, Location: string, Description
 
 // Create a post which will be under a specific Hub or Event
 
-export default { GetEventByLocation, GetEventsByInterest, AddEvent }
+// export default { GetEventByLocation, GetEventsByInterest, AddEvent }
