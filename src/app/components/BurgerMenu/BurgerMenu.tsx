@@ -23,10 +23,10 @@ export default function BurgerMenu() {
               <Link href="/">Home</Link>
             </li>
             <li className={`${styles.bmListItems} ${styles.HubsItem}`}>
-              <Link href="/Hubs">All Hubs</Link>
+              <Link href="/AllHubs">All Hubs</Link>
             </li>
             <li className={`${styles.bmListItems} ${styles.profileItem}`}>
-              <p>Profile</p>
+              <Link href="/Profile">Profile</Link>
             </li>
             <li className={`${styles.bmListItems} ${styles.aboutItem}`}>
               <Link href="/AboutUs">About us</Link>

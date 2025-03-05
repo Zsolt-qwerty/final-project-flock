@@ -1,7 +1,7 @@
 import { createClient } from './server';
 
-// Example function which fetches a single location from event table
-export async function GetEventByLocation() {
+// Example function which fetches an single location from event table
+async function getEventByLocation() {
     const supabase = await createClient();
     const { data: event } = await supabase.from("event").select("event_location");
     return JSON.stringify(event, null, 2);
@@ -10,18 +10,18 @@ export async function GetEventByLocation() {
 
 // Query to show events, users and comments under a specific interest/Hub
 
-export async function GetEventsByInterest(Interest: string) {
+export const getEventsByInterest = async (interest: string) => {
     const supabase = await createClient();
 
     // return all events where interest matches Interest prop
-    const { data: event } = await supabase.from("event").select().eq("event_name", Interest);
+    const { data: event } = await supabase.from("event").select().eq("event_name", interest);
 
     return JSON.stringify(event, null, 2)
 };
 
 
 // Create an event which will be under a specific Hub
-export async function AddEvent(/*Interest: string, Location: string, Description: string*/) {
+async function addEvent(Interest: string, Location: string, Description: string) {
     //Call the server
     const supabase = await createClient();
     //generate a uuid - Supabase may just do this?
@@ -48,4 +48,4 @@ export async function AddEvent(/*Interest: string, Location: string, Description
 
 // Create a post which will be under a specific Hub or Event
 
-// export default { GetEventByLocation, GetEventsByInterest, AddEvent }
+export default { getEventByLocation, getEventsByInterest, addEvent }

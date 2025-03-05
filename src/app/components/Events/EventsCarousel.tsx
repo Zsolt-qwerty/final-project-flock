@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import styles from "./EventCarousel.module.css"
 // import styles from "./SingleHub.module.css"

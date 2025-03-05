@@ -30,6 +30,7 @@
   padding: 0px 6px 3px 6px;
   border: none;
   border-radius: 10px;
+  z-index: 1000;
 }
 .menuList {
   font-family: "N-light";
