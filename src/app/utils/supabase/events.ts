@@ -1,23 +1,22 @@
-import { createClient } from '../utils/supabase/server';
+import { createClient } from './server';
 
 // Example function which fetches an single location from event table
-export default async function GetEventByLocation() {
+async function GetEventByLocation() {
     const supabase = await createClient();
     const { data: event } = await supabase.from("event").select("event_location");
-
-    return <pre>{JSON.stringify(event, null, 2)}</pre>
+    return JSON.stringify(event, null, 2);
 };
 
 
 // Query to show events, users and comments under a specific interest/Hub
 
-async function GetEventByInterest(Interest: string) {
+async function GetEventsByInterest(Interest: string) {
     const supabase = await createClient();
 
-    // return all events where interest is Interest
+    // return all events where interest matches Interest prop
     const { data: event } = await supabase.from("event").select().eq("event_name", Interest);
 
-    return <pre>{JSON.stringify(event, null, 2)}</pre>
+    return JSON.stringify(event, null, 2)
 };
 
 
@@ -42,3 +41,5 @@ async function AddEvent(Interest: string, Location: string, Description: string)
 }
 
 // Create a post which will be under a specific Hub or Event
+
+export default { GetEventByLocation, GetEventsByInterest, AddEvent }
