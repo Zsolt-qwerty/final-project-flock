@@ -1,7 +1,7 @@
 import { createClient } from './server';
 
-// Example function which fetches an single location from event table
-async function GetEventByLocation() {
+// Example function which fetches a single location from event table
+export async function GetEventByLocation() {
     const supabase = await createClient();
     const { data: event } = await supabase.from("event").select("event_location");
     return JSON.stringify(event, null, 2);
@@ -10,7 +10,7 @@ async function GetEventByLocation() {
 
 // Query to show events, users and comments under a specific interest/Hub
 
-async function GetEventsByInterest(Interest: string) {
+export async function GetEventsByInterest(Interest: string) {
     const supabase = await createClient();
 
     // return all events where interest matches Interest prop
@@ -21,7 +21,7 @@ async function GetEventsByInterest(Interest: string) {
 
 
 // Create an event which will be under a specific Hub
-async function AddEvent(Interest: string, Location: string, Description: string) {
+export async function AddEvent(Interest: string, Location: string, Description: string) {
     //Call the server
     const supabase = await createClient();
     //generate a uuid - Supabase may just do this?

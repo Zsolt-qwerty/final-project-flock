@@ -11,7 +11,7 @@ export default async function GetEventByLocation() {
 
 // Query to show events, users and comments under a specific interest/Hub
 
-async function GetEventByInterest(Interest: string) {
+export async function GetEventByInterest(Interest: string) {
     const supabase = await createClient();
 
     // return all events where interest is Interest
@@ -22,7 +22,7 @@ async function GetEventByInterest(Interest: string) {
 
 
 // Create an event which will be under a specific Hub
-async function AddEvent(Interest: string, Location: string, Description: string) {
+export async function AddEvent(Interest: string, Location: string, Description: string) {
     //Call the server
     const supabase = await createClient();
     //generate a uuid - Supabase may just do this?
@@ -38,7 +38,12 @@ async function AddEvent(Interest: string, Location: string, Description: string)
             location: "Newcastle",
             description: "stamp party"
         })
-        .select()
+        .select();
+
+    // --- only to fix deployment issues ---
+    console.log(data, error);
+    // return <pre>{JSON.stringify(data, null, 2)}</pre>
+    // --- only to fix deployment issues ---
 }
 
 // Create a post which will be under a specific Hub or Event
