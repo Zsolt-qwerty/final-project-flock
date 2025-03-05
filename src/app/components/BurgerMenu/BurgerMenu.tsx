@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function BurgerMenu() {
   const [open, setOpen] = useState(false);
   return (
-    <nav>
+    <nav className={styles.navContainer}>
       {!open && (
         <button className={styles.menuButton} onClick={() => setOpen(!open)}>
           ☰

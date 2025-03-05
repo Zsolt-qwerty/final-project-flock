@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Correct for Next.js 13+
+import styles from "./SearchBar.module.css";
 //these is the search bar
 //need to add css
 
@@ -15,15 +16,15 @@ export default function SearchBar() {
   };
 
   return (
-    <div className={SearchBar}>
-      <input
-        type="text"
-        placeholder="Search Hubs..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && handleSearch()} // Press Enter to search
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+    // <div className={styles.searchBarContainer}>
+    <input
+      className={styles.inputBox}
+      type="text"
+      placeholder="Search Hubs..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      onKeyDown={(e) => e.key === "Enter" && handleSearch()} // Press Enter to search
+    />
+    // </div>
   );
 }

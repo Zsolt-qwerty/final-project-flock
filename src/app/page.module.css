@@ -1,0 +1,33 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8f5f3;
+}
+
+.navLogoContainer {
+  display: flex;
+  height: 15vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .headerLogo {
+  margin-left: auto;
+} */
+
+.logoContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 30vw;
+  height: 10vh;
+  display: flex;
+}
+.searchBarContainer {
+  display: flex;
+  height: 10vh;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 70vw;
+}

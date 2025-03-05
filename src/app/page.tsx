@@ -6,12 +6,18 @@ import Navbar from "./components/NavBar/NarBar";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <Navbar />
-      <SearchBar />
-      <main className={styles.main}>
+    <main className={styles.pageContainer}>
+      <div className={styles.navLogoContainer}>
+        <div className={styles.searchBarContainer}>
+          <SearchBar />
+        </div>
+        <div className={styles.logoContainer}>
+          <p className={styles.headerLogo}>Flock</p>
+        </div>
+      </div>
+      <div className={styles.hubDiv}>
         <HubContainer />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
