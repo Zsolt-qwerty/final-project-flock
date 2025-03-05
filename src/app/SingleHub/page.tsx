@@ -5,15 +5,24 @@ import styles from "./SingleHub.module.css";
 
 interface Post {
     post_id: string;
-    written_text: string;
+    post_text: string;
     comments: string[]; // Add comments array to each post
 }
+interface NewPost {
+    user_id: string;
+    interest_id: number;
+    post_title: string
+    post_text: string;
+};
+
 
 export default function SingleHub() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [newPostTitle, setNewPostTitle] = useState("");
     const [newPostContent, setNewPostContent] = useState("");
     const [newComment, setNewComment] = useState(""); // For managing new comment input
+    const [currentHub, setCurrentHub] = useState(1);
+    const [currentUser, setCurrentUser] = useState("c95c8dae-187d-481c-8ddb-ce3d16bcc138")
 
     // Fetch posts
     useEffect(() => {
@@ -38,30 +47,55 @@ export default function SingleHub() {
     }, []);
 
     // Add new post
-    const handleAddPost = () => {
-        if (newPostTitle.trim() && newPostContent.trim()) {
-            const newPost: Post = {
-                post_id: (posts.length + 1).toString(),
-                written_text: newPostContent,
-                comments: [],
-            };
-            setPosts([newPost, ...posts]);
-            setNewPostTitle("");
-            setNewPostContent("");
+    const handleAddPost = async () => {
+        try {
+            console.log('Attempting to post with:', {  // Debug log
+                user_id: currentUser,
+                interest_id: currentHub,
+                post_title: newPostTitle,
+                post_text: newPostContent
+            });
+
+            const response = await fetch('/api/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: currentUser,
+                    interest_id: currentHub,
+                    post_title: newPostTitle,
+                    post_text: newPostContent
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.log('Error response:', errorData);  // Debug log
+                throw new Error(errorData.error || 'Failed to create post');
+            }
+
+            const data = await response.json();
+            console.log('Success response:', data);  // Debug log
+
+            // Rest of your code...
+
+        } catch (error) {
+            console.error('Detailed error:', error);  // More detailed error logging
         }
     };
 
     // Add new comment to a post
-    const handleAddComment = (postId: string, comment: string) => {
-        setPosts(
-            posts.map((post) =>
-                post.post_id === postId
-                    ? { ...post, comments: [...post.comments, comment] }
-                    : post
-            )
-        );
-        setNewComment(""); // Reset the new comment input field
-    };
+    // const handleAddComment = (postId: string, comment: string) => {}
+    //     setPosts(
+    //         posts.map((post) =>
+    //             post.post_id === postId
+    //                 ? { ...post, comments: [...post.comments, comment] }
+    //                 : post
+    //         )
+    //     );
+    //     setNewComment(""); // Reset the new comment input field
+    // };
 
     return (
         <div>
@@ -71,7 +105,7 @@ export default function SingleHub() {
                     {posts.map((post) => (
                         <div key={post.post_id} className={styles.Post}>
                             {/* <h2>{post.title}</h2> */}
-                            <p>{post.written_text}</p>
+                            <p>{post.post_text}</p>
 
                             {/* Comments Section */}
                             <div className={styles.CommentsSection}>
@@ -87,7 +121,7 @@ export default function SingleHub() {
                                 )}
 
                                 {/* Comment input for each post */}
-                                <input
+                                {/* <input
                                     type="text"
                                     value={newComment}
                                     placeholder="Write a comment..."
@@ -97,7 +131,7 @@ export default function SingleHub() {
                                             handleAddComment(post.post_id, newComment.trim());
                                         }
                                     }}
-                                />
+                                /> */}
                             </div>
                         </div>
                     ))}
@@ -124,4 +158,4 @@ export default function SingleHub() {
             <EventCarousel />
         </div>
     );
-}
+};
