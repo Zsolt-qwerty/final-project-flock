@@ -1,16 +1,15 @@
-
 "use client";
 
 //These are place holder hub cards
 //They will eventually have a liked and joined
 //At the moment Ive just added the container as its has a link set up to stamps
-import HubContainer from "../components/HubContainer/HubContainer";
+// import HubContainer from "../components/HubContainer/HubContainer";
 
 import { useEffect, useState } from "react";
 
 import styles from "./Profile.module.css";
 import Image from "next/image";
-
+import HomeHubContainer from "../components/HomeHubContainer/HomeHubContainer";
 
 interface User {
   name: string;
@@ -40,7 +39,9 @@ export default function ProfilePage() {
   }, []);
 
   // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setEditedUser({ ...editedUser, [e.target.name]: e.target.value });
   };
 
@@ -60,47 +61,77 @@ export default function ProfilePage() {
   return (
     <div className={styles.profile}>
       <div className={styles.banner}>
-   <Image className={styles.profileImage}
-            src="/Profile/ProfileImagePlaceholder.png"
-            alt="placeholder image for the profile picture"
-            width={200}
-            height={200}
+        <Image
+          className={styles.profileImage}
+          src="/Profile/ProfileImagePlaceholder.png"
+          alt="placeholder image for the profile picture"
+          width={200}
+          height={200}
+        />
+
+        {isEditing ? (
+          // Edit Mode: Show form inputs
+          <div className={styles.intro}>
+            <label>Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={editedUser.name}
+              onChange={handleChange}
             />
 
-      {isEditing ? (
-        // Edit Mode: Show form inputs
-        <div className={styles.intro}>
-          <label>Name:</label>
-          <input type="text" name="name" value={editedUser.name} onChange={handleChange} />
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={editedUser.email}
+              onChange={handleChange}
+            />
 
-          <label>Email:</label>
-          <input type="email" name="email" value={editedUser.email} onChange={handleChange} />
+            <label>Bio:</label>
+            <textarea
+              name="bio"
+              value={editedUser.bio}
+              onChange={handleChange}
+            />
 
-          <label>Bio:</label>
-          <textarea name="bio"  value={editedUser.bio} onChange={handleChange} />
-
-          <button onClick={handleSave}>Save</button>
-          <button onClick={handleCancel}>Cancel</button>
+            <button onClick={handleSave}>Save</button>
+            <button onClick={handleCancel}>Cancel</button>
+          </div>
+        ) : (
+          // View Mode: Show user details
+          <div className={styles.intro}>
+            <p>
+              <strong>Name:</strong>Lara Thompson
+            </p>
+            <p>
+              <strong>Email:</strong> lara97@hotmail.co.uk
+            </p>
+            <p>
+              <strong>Bio:</strong> Hi I&apos;m Lara 🌸
+              <p>I&apos;m based in the UK!</p>
+              <p>I love stamp collecting and Art!</p>
+            </p>
+          </div>
+        )}
+      </div>
+      <div className={styles.section}>
+        {" "}
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => setIsEditing(true)}>
+            Edit Profile
+          </button>
         </div>
-      ) : (
-        // View Mode: Show user details
-        <div className={styles.intro}>
-          <p><strong>Name:</strong>Lara Thompson</p>
-          <p><strong>Email:</strong> lara97@hotmail.co.uk</p>
-          <p><strong>Bio:</strong> Hi I&apos;m Lara 🌸<p>I&apos;m based in the UK!</p><p>I love stamp collecting and Art!</p></p>
-          </div> )}</div>
-         <div className={styles.section}> <div className={styles.buttonContainer}><button className={styles.button} onClick={() => setIsEditing(true)}>Edit Profile</button></div>
-          
-<div className={styles.favHubs}>
+        <div className={styles.favHubs}>
           <h3>Joined Hubs:</h3>
           <ul>
-            <HubContainer />
-             {/* {user.hubsJoined.length > 0 ? user.hubsJoined.map((hub, index) => (
+            <HomeHubContainer />
+            {/* {user.hubsJoined.length > 0 ? user.hubsJoined.map((hub, index) => (
               <li key={index}>{hub}</li>
             )) : <p>No hubs joined yet.</p>} */}
-          </ul> 
+          </ul>
         </div>
-    </div>
+      </div>
     </div>
   );
 }
