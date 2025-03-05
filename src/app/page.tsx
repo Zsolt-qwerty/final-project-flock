@@ -12,7 +12,9 @@ export default function Home() {
           <SearchBar />
         </div>
         <div className={styles.logoContainer}>
-          <p className={styles.headerLogo}>Flock</p>
+          <p className={styles.headerLogo}>
+            find your <span className={styles.flockText}>FLOCK</span>
+          </p>
         </div>
       </div>
       <div className={styles.hubDiv}>

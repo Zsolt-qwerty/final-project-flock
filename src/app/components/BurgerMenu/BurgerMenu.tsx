@@ -25,6 +25,9 @@ export default function BurgerMenu() {
             <li className={`${styles.bmListItems} ${styles.HubsItem}`}>
               <Link href="/Hubs">All Hubs</Link>
             </li>
+            <li className={`${styles.bmListItems} ${styles.profileItem}`}>
+              <p>Profile</p>
+            </li>
             <li className={`${styles.bmListItems} ${styles.aboutItem}`}>
               <Link href="/AboutUs">About us</Link>
             </li>

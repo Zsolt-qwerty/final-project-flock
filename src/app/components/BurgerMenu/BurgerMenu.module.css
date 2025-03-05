@@ -64,6 +64,10 @@
   background-color: #ffd955;
 }
 
+.profileItem:hover {
+  background-color: #ff8534;
+}
+
 .loginButton {
   margin-top: auto;
   border: none;
