@@ -1,11 +1,13 @@
 "use client";
 
+
 import HubContainer from "../components/HubContainer/HubContainer";
 import { useEffect, useState } from "react";
 import styles from "./Profile.module.css";
 import Image from "next/image";
 import BioCard from "./ProfileComponents/BioCard/BioCard";
 import EditingCard from "./ProfileComponents/EditingCard/EditingCard";
+// import HomeHubContainer from "../components/HomeHubContainer/HomeHubContainer";
 
 interface User {
   name: string;
@@ -51,6 +53,7 @@ export default function ProfilePage() {
   };
 
   return (
+
     <div className={styles.profileContainer}>
       <div className={styles.banner}></div>
       <div className={styles.imageEditingContainer}>
@@ -77,6 +80,7 @@ export default function ProfilePage() {
         <div className={styles.favHubsContainer}>
           <h3>Joined Hubs:</h3>
           <HubContainer />
+
         </div>
       </div>
     </div>

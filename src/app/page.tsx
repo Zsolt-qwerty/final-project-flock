@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import HubContainer from "../app/components/HubContainer/HubContainer";
+import HomeHubContainer from "./components/HomeHubContainer/HomeHubContainer";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Navbar from "./components/NavBar/NarBar";
 // This component serves as the main page for the root route (/).
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.hubDiv}>
-        <HubContainer />
+        <HomeHubContainer />
       </div>
     </main>
   );
