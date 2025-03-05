@@ -1,6 +1,7 @@
 "use client";
 import styles from "./BurgerMenu.module.css";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function BurgerMenu() {
   const [open, setOpen] = useState(false);
@@ -14,16 +15,24 @@ export default function BurgerMenu() {
 
       {open && (
         <div className={styles.menuContainer}>
-          <button className={styles.menuButton} onClick={() => setOpen(!open)}>
+          <button className={styles.xButton} onClick={() => setOpen(!open)}>
             x
           </button>
-          <ul>
-            <li>Home</li>
-            <li>Profile</li>
-            <li>Hubs</li>
-            <li>About Us</li>
-            <li>Community Rules</li>
+          <ul className={styles.menuList}>
+            <li className={`${styles.bmListItems} ${styles.homeItem}`}>
+              <Link href="/">Home</Link>
+            </li>
+            <li className={`${styles.bmListItems} ${styles.HubsItem}`}>
+              <Link href="/Hubs">All Hubs</Link>
+            </li>
+            <li className={`${styles.bmListItems} ${styles.aboutItem}`}>
+              <Link href="/AboutUs">About us</Link>
+            </li>
+            <li className={`${styles.bmListItems} ${styles.rulesItem}`}>
+              <Link href="/Rules">Community Rules</Link>
+            </li>
           </ul>
+          <button className={styles.loginButton}>Login/Sign Up</button>
         </div>
       )}
     </nav>

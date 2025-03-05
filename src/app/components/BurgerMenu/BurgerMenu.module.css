@@ -3,9 +3,11 @@
   height: 100vh;
   background: white;
   border-right: solid 0.1em black;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.5s ease-in-out;
   font-family: "N-light";
+  overflow: hidden;
 }
 
 .menuButton {
@@ -19,4 +21,68 @@
   padding: 0px 6px 3px 6px;
   border: none;
   border-radius: 10px;
+}
+.menuList {
+  font-family: "N-light";
+  font-size: 18px;
+  color: black;
+  list-style-type: none;
+}
+
+.bmListItems {
+  display: block; /* Make each list item block-level to take full width */
+  padding: 12px 10px 10px 8px; /* Space inside each item */
+  border-top: 1px solid black; /* Black border around each item */
+}
+
+.rulesItem {
+  border-bottom: 1px solid black;
+}
+
+.rulesItem:hover {
+  background-color: #ff3f3f;
+}
+
+.aboutItem:hover {
+  background-color: #275aff;
+}
+
+.HubsItem:hover {
+  background-color: #feabab;
+}
+
+.homeItem:hover {
+  background-color: #ffd955;
+}
+
+.loginButton {
+  margin-top: auto;
+  border: none;
+  background-color: transparent;
+  padding: 0px 10px 8px 12px;
+  align-self: flex-start;
+  font-family: "N-Medium";
+  font-size: 16px;
+  text-decoration: underline;
+  transition: transform 0.3s ease;
+}
+
+.loginButton:hover {
+  transform: scale(1.05);
+}
+
+.xButton {
+  margin-right: auto;
+  background-color: white;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding-top: 0;
+  padding: 3px 6px 6px 12px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+.xButton:hover {
+  transform: scale(1.3);
 }
