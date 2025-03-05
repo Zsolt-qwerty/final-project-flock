@@ -3,9 +3,6 @@
     flex-direction: column;
     background-color: #dfdfdf;
 }  */
-body {
-  background-color: #dfdfdf;
-}
 
 .profileImage {
   border-radius: 50%;
@@ -19,6 +16,7 @@ body {
   background-color: white;
   font-family: "N-Light";
 }
+
 .banner {
   display: flex;
   flex-direction: row;
@@ -27,6 +25,7 @@ body {
   padding: 100px;
   gap: 50px;
 }
+
 .favHubs {
   display: flex;
   border: 1px solid #ddd;
