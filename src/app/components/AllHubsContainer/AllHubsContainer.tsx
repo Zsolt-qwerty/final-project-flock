@@ -13,7 +13,7 @@ const AllHubContainer = () => {
       <HubCard label="Stamps" href="/SingleHub" className={styles.hubButton} />
       <HubCard
         label="Photography"
-        href="/SingleHub"
+        href="/Photography"
         className={styles.hubButton}
       />
       <HubCard
@@ -29,27 +29,28 @@ const AllHubContainer = () => {
       />
       <HubCard label="Reading" href="/SingleHub" className={styles.hubButton} />
       <HubCard
-        label="Knitting"
-        href="/SingleHub"
+        label="Book Club"
+        href="/Bookclub"
         className={styles.hubButton}
       />
       <HubCard label="Music" href="/SingleHub" className={styles.hubButton} />
       <HubCard label="Hiking" href="/SingleHub" className={styles.hubButton} />
       <HubCard label="Cycling" href="/SingleHub" className={styles.hubButton} />
       <HubCard label="Coding" href="/SingleHub" className={styles.hubButton} />
+      <HubCard label="Techno" href="/Techno" className={styles.hubButton} />
       <HubCard
         label="Traveling"
         href="/SingleHub"
         className={styles.hubButton}
       />
-      <HubCard label="Writing" href="/SingleHub" className={styles.hubButton} />
+      <HubCard label="Martial Arts" href="/Martialarts" className={styles.hubButton} />
       <HubCard label="Gaming" href="/SingleHub" className={styles.hubButton} />
       <HubCard
         label="Birdwatching"
         href="/SingleHub"
         className={styles.hubButton}
       />
-      <HubCard label="Art" href="/SingleHub" className={styles.hubButton} />
+      <HubCard label="Art" href="/Arts" className={styles.hubButton} />
     </div>
   );
 };
