@@ -72,12 +72,13 @@ export async function POST(request: Request) {
             { status: 201 }
         );
 
-    } catch (error: any) { // Type error as any OR use a more specific type
+    } catch (err) {
+        const error = err as Error;  // Type assertion to Error
         console.error('Detailed server error:', error);
         return NextResponse.json(
             {
                 error: 'Internal server error',
-                details: error?.message || 'Unknown error'  // Use optional chaining
+                details: error.message || 'Unknown error'
             },
             { status: 500 }
         );
