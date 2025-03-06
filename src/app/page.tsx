@@ -76,8 +76,8 @@ export default function Home() {
             className={styles.homeButton}
           />
           <HubCard
-            label="art"
-            href="/SingleHub"
+            label="martial arts"
+            href="/MartialArts"
             className={styles.homeButton}
           />
         </div>
