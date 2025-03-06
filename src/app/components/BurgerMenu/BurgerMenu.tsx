@@ -4,13 +4,14 @@ import styles from "./BurgerMenu.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import { signIn, signOut, signUp } from "../../utils/supabase/auth";
+import { User } from "@supabase/supabase-js";
 
 export default function BurgerMenu() {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSignIn = async () => {
     const { user, error } = await signIn(email, password);
