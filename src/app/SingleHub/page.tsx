@@ -8,21 +8,26 @@ interface Post {
     post_text: string;
     comments: string[]; // Add comments array to each post
 }
-interface NewPost {
-    user_id: string;
-    interest_id: number;
-    post_title: string
-    post_text: string;
-};
+// interface NewPost {
+//     user_id: string;
+//     interest_id: number;
+//     post_title: string
+//     post_text: string;
+// };
 
 
 export default function SingleHub() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [newPostTitle, setNewPostTitle] = useState("");
     const [newPostContent, setNewPostContent] = useState("");
-    const [newComment, setNewComment] = useState(""); // For managing new comment input
+    // const [newComment, setNewComment] = useState(""); // For managing new comment input
     const [currentHub, setCurrentHub] = useState(1);
     const [currentUser, setCurrentUser] = useState("c95c8dae-187d-481c-8ddb-ce3d16bcc138")
+    
+    // --- for solving deployment issues ---
+    setCurrentHub(1);
+    setCurrentUser("c95c8dae-187d-481c-8ddb-ce3d16bcc138");
+    // --- end of solving deployment issues ---
 
     // Fetch posts
     useEffect(() => {
@@ -158,4 +163,4 @@ export default function SingleHub() {
             <EventCarousel />
         </div>
     );
-};
+}
