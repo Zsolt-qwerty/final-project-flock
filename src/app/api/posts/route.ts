@@ -16,6 +16,7 @@ interface PostRequest {
 // Interface for the response
 interface PostResponse {
     post_id: string;
+    interest_id: number;
     post_title: string;
     post_text: string;
     comments: string[];
@@ -59,6 +60,7 @@ export async function POST(request: Request) {
 
         const formattedPost: PostResponse = {
             post_id: newPost.post_id,
+            interest_id: body.interest_id,
             post_title: newPost.post_title,
             post_text: newPost.post_text,
             comments: []
