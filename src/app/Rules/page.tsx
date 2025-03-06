@@ -1,4 +1,3 @@
-
 import { FC } from "react";
 import styles from "./Rules.module.css";
 
@@ -10,7 +9,7 @@ const CommunityRules: FC = () => {
       </div>
       <div className={styles.centerContainer}>
         <div className={styles.textSection}>
-          <p style={{ fontFamily: "N-Medium", fontSize: "20px" }}>
+          <p style={{ fontFamily: "N-Medium", fontSize: "2.2vh" }}>
             Welcome to the Flock! {`We're`} so glad {`you're`} here.
           </p>
           <br />
@@ -43,7 +42,7 @@ const CommunityRules: FC = () => {
           <p
             style={{
               fontFamily: "N-Medium",
-              fontSize: "20px",
+              fontSize: "2vh",
             }}
           >
             Help us to keep Flock awesome
@@ -66,7 +65,7 @@ const CommunityRules: FC = () => {
           <p
             style={{
               fontFamily: "N-Medium",
-              fontSize: "20px",
+              fontSize: "2vh",
             }}
           >
             {`That's`} all!
@@ -86,4 +85,3 @@ const CommunityRules: FC = () => {
 };
 
 export default CommunityRules;
-
