@@ -41,6 +41,14 @@ const events: Event[] = [
       "View some of the rarest and most valuable stamps in existence.",
     image: "/images/rare_stamps.jpg",
   },
+  {
+    id: 5,
+    title: "Rare Stamps Auction",
+    date: "June 10, 2025",
+    description:
+      "View some of the rarest and most valuable stamps in existence.",
+    image: "/images/rare_stamps.jpg",
+  },
 ];
 
 export default function EventCarousel() {
