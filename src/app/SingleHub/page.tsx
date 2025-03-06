@@ -55,7 +55,6 @@ export default function SingleHub() {
         fetchPosts();
     }, []);
 
-    // Add new post
     const handleAddPost = async () => {
         try {
             // Log what we're sending
@@ -65,18 +64,18 @@ export default function SingleHub() {
                 post_title: newPostTitle,
                 post_text: newPostContent
             });
-
-
-  // Add new post
-  const handleAddPost = async () => {
-    try {
-      console.log("Attempting to post with:", {
-        // Debug log
-        user_id: currentUser,
-        interest_id: currentHub,
-        post_title: newPostTitle,
-        post_text: newPostContent,
-      });
+            const response = await fetch('/api/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: currentUser,
+                    interest_id: currentHub,
+                    post_title: newPostTitle,
+                    post_text: newPostContent
+                })
+            });
 
 
             const data = await response.json();
@@ -201,4 +200,4 @@ export default function SingleHub() {
       </div>
     </div>
   );
-}
+};
