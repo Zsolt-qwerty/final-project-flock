@@ -21,7 +21,7 @@ export const getEventsByInterest = async (interest: string) => {
 
 
 // Create an event which will be under a specific Hub
-async function addEvent(Interest: string, Location: string, Description: string) {
+async function addEvent(/*Interest: string, Location: string, Description: string*/) {
     //Call the server
     const supabase = await createClient();
     //generate a uuid - Supabase may just do this?
@@ -37,7 +37,13 @@ async function addEvent(Interest: string, Location: string, Description: string)
             location: "Newcastle",
             description: "stamp party"
         })
-        .select()
+        .select();
+
+    // --- only to fix deployment issues ---
+    console.log(data, error);
+    // return <pre>{JSON.stringify(data, null, 2)}</pre>
+    // --- only to fix deployment issues ---
+
 }
 
 // Create a post which will be under a specific Hub or Event

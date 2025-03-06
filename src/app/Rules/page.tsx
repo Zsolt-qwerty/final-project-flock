@@ -1,3 +1,4 @@
+
 import { FC } from "react";
 import styles from "./Rules.module.css";
 
@@ -85,3 +86,4 @@ const CommunityRules: FC = () => {
 };
 
 export default CommunityRules;
+
