@@ -49,36 +49,33 @@ export default function Home() {
           At Flock we belive that if you care about something, there is someone
           out there who cares about that thing too. Lets get you connected.
         </p>
+
         <div className={styles.hubDiv}>
+          <HubCard label="art" href="/Arts" className={styles.homeButtonArt} />
           <HubCard
-            label="art"
-            href="/Arts"
-            className={styles.homeButton}
-          />
-          <HubCard
-            label="photography"
+            label="photos"
             href="/Photography"
-            className={styles.homeButton}
+            className={styles.homeButtonPhotos}
           />
           <HubCard
             label="stamps"
             href="/SingleHub"
-            className={styles.homeButton}
+            className={styles.homeButtonStamps}
           />
           <HubCard
             label="techno"
             href="/Techno"
-            className={styles.homeButton}
+            className={styles.homeButtonTechno}
           />
           <HubCard
             label="book club"
             href="/BookClub"
-            className={styles.homeButton}
+            className={styles.homeButtonBookClub}
           />
           <HubCard
             label="martial arts"
             href="/MartialArts"
-            className={styles.homeButton}
+            className={styles.homeButtonMartialArts}
           />
         </div>
       </div>
