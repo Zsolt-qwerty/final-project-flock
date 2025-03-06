@@ -52,27 +52,27 @@ export default function Home() {
         <div className={styles.hubDiv}>
           <HubCard
             label="art"
+            href="/Arts"
+            className={styles.homeButton}
+          />
+          <HubCard
+            label="photography"
+            href="/Photography"
+            className={styles.homeButton}
+          />
+          <HubCard
+            label="stamps"
             href="/SingleHub"
             className={styles.homeButton}
           />
           <HubCard
-            label="art"
-            href="/SingleHub"
+            label="techno"
+            href="/Techno"
             className={styles.homeButton}
           />
           <HubCard
-            label="art"
-            href="/SingleHub"
-            className={styles.homeButton}
-          />
-          <HubCard
-            label="art"
-            href="/SingleHub"
-            className={styles.homeButton}
-          />
-          <HubCard
-            label="art"
-            href="/SingleHub"
+            label="book club"
+            href="/BookClub"
             className={styles.homeButton}
           />
           <HubCard
