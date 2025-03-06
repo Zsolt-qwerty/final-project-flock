@@ -123,14 +123,15 @@ export default function SingleHub() {
           <p className={styles.hubName}>stamps</p>
         </div>
         <div className={styles.boardContainer}>
-          <div className={styles.ForumBoard}>
-            {posts.map((post) => (
-              <div key={post.post_id} className={styles.post}>
-                <h2>{post.post_title}</h2>
-                <p>{post.post_text}</p>
+          <div className={styles.scrollContainer}>
+            <div className={styles.ForumBoard}>
+              {posts.map((post) => (
+                <div key={post.post_id} className={styles.post}>
+                  <h2>{post.post_title}</h2>
+                  <p>{post.post_text}</p>
 
-                {/* Comments Section */}
-                {/* <div className={styles.CommentsSection}>
+                  {/* Comments Section */}
+                  {/* <div className={styles.CommentsSection}>
                   <h3>Comments:</h3>
                   {post.comments.length > 0 ? (
                     post.comments.map((comment, index) => (
@@ -145,8 +146,8 @@ export default function SingleHub() {
                     <p>No comments yet.</p>
                   )} */}
 
-                {/* Comment input for each post */}
-                {/* <input
+                  {/* Comment input for each post */}
+                  {/* <input
                                     type="text"
                                     value={newComment}
                                     placeholder="Write a comment..."
@@ -157,9 +158,10 @@ export default function SingleHub() {
                                         }
                                     }}
                                 /> */}
-                {/* </div> */}
-              </div>
-            ))}
+                  {/* </div> */}
+                </div>
+              ))}
+            </div>
           </div>
           {/* Create Post Section */}
           <div className={styles.PostCreator}>
