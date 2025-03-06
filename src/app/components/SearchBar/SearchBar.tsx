@@ -9,7 +9,7 @@ export default function SearchBar() {
 
   const handleSearch = () => {
     if (searchTerm.trim()) {
-      router.push(`/AllHubs?query=${encodeURIComponent(searchTerm)}`);
+      router.push(`/${encodeURIComponent(searchTerm)}`);
       setSearchTerm(''); // Clear the search input after search
     }
   };
