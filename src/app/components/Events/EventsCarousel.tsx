@@ -2,7 +2,15 @@
 import React from "react";
 import styles from "./EventCarousel.module.css";
 
-const events = [
+type Event = {
+  id: number;
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+};
+
+const events: Event[] = [
   {
     id: 1,
     title: "National Stamp Collectors Meetup",
@@ -33,14 +41,6 @@ const events = [
       "View some of the rarest and most valuable stamps in existence.",
     image: "/images/rare_stamps.jpg",
   },
-  {
-    id: 5,
-    title: "Rare Stamps Showcase",
-    date: "June 5, 2025",
-    description:
-      "View some of the rarest and most valuable stamps in existence.",
-    image: "/images/rare_stamps.jpg",
-  },
 ];
 
 export default function EventCarousel() {
@@ -48,7 +48,7 @@ export default function EventCarousel() {
     <div className={styles.eventsContainer}>
       <h2>Upcoming Events</h2>
       <div className={styles.eventsList}>
-        {events.map((event) => (
+        {events.map((event: Event) => (
           <div key={event.id} className={styles.eventCard}>
             <h3>{event.title}</h3>
             <p>
