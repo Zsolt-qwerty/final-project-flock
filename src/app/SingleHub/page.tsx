@@ -22,11 +22,13 @@ export default function SingleHub() {
     const [newPostContent, setNewPostContent] = useState("");
     // const [newComment, setNewComment] = useState(""); // For managing new comment input
     const [currentHub, setCurrentHub] = useState(1);
-    const [currentUser, setCurrentUser] = useState("c95c8dae-187d-481c-8ddb-ce3d16bcc138")
+    const [currentUser, setCurrentUser] = useState("c95c8dae-187d-481c-8ddb-ce3d16bcc138");
     
     // --- for solving deployment issues ---
-    setCurrentHub(1);
-    setCurrentUser("c95c8dae-187d-481c-8ddb-ce3d16bcc138");
+    useEffect(() => {
+        setCurrentHub(1);
+        setCurrentUser("c95c8dae-187d-481c-8ddb-ce3d16bcc138");
+    }, []);
     // --- end of solving deployment issues ---
 
     // Fetch posts
