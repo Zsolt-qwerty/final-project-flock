@@ -49,6 +49,7 @@ const AllHubContainer = () => {
         href="/SingleHub"
         className={styles.hubButton}
       />
+      <HubCard label="Art" href="/SingleHub" className={styles.hubButton} />
     </div>
   );
 };
