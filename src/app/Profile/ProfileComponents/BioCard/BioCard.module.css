@@ -10,6 +10,7 @@
   font-size: 2vh;
   letter-spacing: 0.02rem;
   line-height: 110%;
+  box-shadow: 0.2vw 0.2vh 0.8vw rgba(0, 0, 0, 0.1);
 }
 
 .bioCardContainer:hover {
