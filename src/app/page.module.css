@@ -74,16 +74,128 @@
   font-size: 2.8vh;
 }
 
-.homeButton {
+.homeButtonArt {
   width: 18vw;
   height: 22vh;
   border-radius: 4vh;
   border-style: none;
-  background-color: #dfdfdf;
+  background-color: #dfdfdf; /* Original background color */
   display: flex;
   align-items: flex-end;
-  font-family: "N-Bold";
-  font-size: 5.5vh;
+  font-family: "N-ExtraBold";
+  font-size: 4.2vh;
+  text-align: left;
   padding-left: 1.5vw;
   padding-bottom: 1.4vh;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.homeButtonArt:hover {
+  background-color: #ffd955; /* Color on hover */
+  transform: scale(1.05); /* Slightly grows the button */
+}
+
+.homeButtonPhotos {
+  width: 18vw;
+  height: 22vh;
+  border-radius: 4vh;
+  border-style: none;
+  background-color: #dfdfdf; /* Original background color */
+  display: flex;
+  align-items: flex-end;
+  font-family: "N-ExtraBold";
+  font-size: 4.2vh;
+  text-align: left;
+  padding-left: 1.5vw;
+  padding-bottom: 1.4vh;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.homeButtonPhotos:hover {
+  background-color: #feabab; /* Color on hover */
+  transform: scale(1.05); /* Slightly grows the button */
+}
+
+.homeButtonStamps {
+  width: 18vw;
+  height: 22vh;
+  border-radius: 4vh;
+  border-style: none;
+  background-color: #dfdfdf; /* Original background color */
+  display: flex;
+  align-items: flex-end;
+  font-family: "N-ExtraBold";
+  font-size: 4.2vh;
+  text-align: left;
+  padding-left: 1.5vw;
+  padding-bottom: 1.4vh;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.homeButtonStamps:hover {
+  background-color: #275aff; /* Color on hover */
+  transform: scale(1.05); /* Slightly grows the button */
+}
+
+.homeButtonTechno {
+  width: 18vw;
+  height: 22vh;
+  border-radius: 4vh;
+  border-style: none;
+  background-color: #dfdfdf; /* Original background color */
+  display: flex;
+  align-items: flex-end;
+  font-family: "N-ExtraBold";
+  font-size: 4.2vh;
+  text-align: left;
+  padding-left: 1.5vw;
+  padding-bottom: 1.4vh;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.homeButtonTechno:hover {
+  background-color: #ff3f3f; /* Color on hover */
+  transform: scale(1.05); /* Slightly grows the button */
+}
+
+.homeButtonBookClub {
+  width: 18vw;
+  height: 22vh;
+  border-radius: 4vh;
+  border-style: none;
+  background-color: #dfdfdf; /* Original background color */
+  display: flex;
+  align-items: flex-end;
+  font-family: "N-ExtraBold";
+  font-size: 4.2vh;
+  text-align: left;
+  padding-left: 1.5vw;
+  padding-bottom: 1.4vh;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.homeButtonBookClub:hover {
+  background-color: #4b6e49; /* Color on hover */
+  transform: scale(1.05); /* Slightly grows the button */
+}
+
+.homeButtonMartialArts {
+  width: 18vw;
+  height: 22vh;
+  border-radius: 4.2vh;
+  border-style: none;
+  background-color: #dfdfdf; /* Original background color */
+  display: flex;
+  align-items: flex-end;
+  font-family: "N-ExtraBold";
+  font-size: 4vh;
+  text-align: left;
+  padding-left: 1.5vw;
+  padding-bottom: 1.4vh;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.homeButtonMartialArts:hover {
+  background-color: #ff8534; /* Color on hover */
+  transform: scale(1.05); /* Slightly grows the button */
 }
