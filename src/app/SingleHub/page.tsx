@@ -4,9 +4,12 @@ import EventCarousel from "../components/Events/EventsCarousel";
 import styles from "./SingleHub.module.css";
 
 interface Post {
-  post_id: string;
-  post_text: string;
-  comments: string[]; // Add comments array to each post
+
+    post_id: string;
+    post_text: string;
+    post_title: string;
+    comments: string[]; // Add comments array to each post
+
 }
 // interface NewPost {
 //     user_id: string;
@@ -16,43 +19,53 @@ interface Post {
 // };
 
 export default function SingleHub() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [newPostTitle, setNewPostTitle] = useState("");
-  const [newPostContent, setNewPostContent] = useState("");
-  // const [newComment, setNewComment] = useState(""); // For managing new comment input
-  const [currentHub, setCurrentHub] = useState(1);
-  const [currentUser, setCurrentUser] = useState(
-    "c95c8dae-187d-481c-8ddb-ce3d16bcc138"
-  );
+    const [posts, setPosts] = useState<Post[]>([]);
+    const [newPostTitle, setNewPostTitle] = useState("");
+    const [newPostContent, setNewPostContent] = useState("");
+    // const [newComment, setNewComment] = useState(""); // For managing new comment input
+    const [currentHub, setCurrentHub] = useState(4);
+    const [currentUser, setCurrentUser] = useState("3c0e53ff-25d9-4425-830a-6804b3194455");
 
-  // --- for solving deployment issues ---
-  useEffect(() => {
-    setCurrentHub(1);
-    setCurrentUser("c95c8dae-187d-481c-8ddb-ce3d16bcc138");
-  }, []);
-  // --- end of solving deployment issues ---
+    // --- for solving deployment issues ---
+    useEffect(() => {
+        setCurrentHub(4);
+        setCurrentUser("3c0e53ff-25d9-4425-830a-6804b3194455");
+    }, []);
+    // --- end of solving deployment issues ---
 
-  // Fetch posts
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("/api/posts?interest_id=1");
-        const fetchedPosts = await response.json();
-        setPosts(
-          Array.isArray(fetchedPosts)
-            ? fetchedPosts.map((post) => ({
-                ...post,
-                comments: Array.isArray(post.comments) ? post.comments : [],
-              }))
-            : []
-        );
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-        setPosts([]);
-      }
-    };
-    fetchPosts();
-  }, []);
+    // Fetch posts
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await fetch('/api/posts?interest_id=4');
+                const fetchedPosts = await response.json();
+                setPosts(
+                    Array.isArray(fetchedPosts)
+                        ? fetchedPosts.map(post => ({
+                            ...post,
+                            comments: Array.isArray(post.comments) ? post.comments : [],
+                        }))
+                        : []
+                );
+            } catch (error) {
+                console.error("Failed to fetch posts:", error);
+                setPosts([]);
+            }
+        };
+        fetchPosts();
+    }, []);
+
+    // Add new post
+    const handleAddPost = async () => {
+        try {
+            // Log what we're sending
+            console.log('Sending post data:', {
+                user_id: currentUser,
+                interest_id: currentHub,
+                post_title: newPostTitle,
+                post_text: newPostContent
+            });
+
 
   // Add new post
   const handleAddPost = async () => {
@@ -65,33 +78,35 @@ export default function SingleHub() {
         post_text: newPostContent,
       });
 
-      const response = await fetch("/api/posts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: currentUser,
-          interest_id: currentHub,
-          post_title: newPostTitle,
-          post_text: newPostContent,
-        }),
-      });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.log("Error response:", errorData); // Debug log
-        throw new Error(errorData.error || "Failed to create post");
-      }
+            const data = await response.json();
+            console.log('Response data:', data); // Debug log
 
-      const data = await response.json();
-      console.log("Success response:", data); // Debug log
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to create post');
+            }
 
-      // Rest of your code...
-    } catch (error) {
-      console.error("Detailed error:", error); // More detailed error logging
-    }
-  };
+            // Create a new post object that matches your Post interface
+            const newPost: Post = {
+                post_id: data.post.post_id,
+                post_title: data.post.post_title,
+                post_text: data.post.post_text,
+                comments: [] // Initialize with empty comments array
+            };
+
+            // Update posts array with new post
+            setPosts(prevPosts => [newPost, ...prevPosts]);
+
+            // Clear form
+            setNewPostTitle('');
+            setNewPostContent('');
+
+        } catch (error) {
+            console.error('Error creating post:', error);
+            alert('Failed to create post');
+        }
+    };
+
 
   // Add new comment to a post
   // const handleAddComment = (postId: string, comment: string) => {}
@@ -105,6 +120,7 @@ export default function SingleHub() {
   //     setNewComment(""); // Reset the new comment input field
   // };
 
+
   return (
     <div className={styles.pageContainer}>
       <div className={styles.ForumContainer}>
@@ -117,6 +133,7 @@ export default function SingleHub() {
               <div key={post.post_id} className={styles.Post}>
                 {/* <h2>{post.title}</h2> */}
                 <p>{post.post_text}</p>
+
 
                 {/* Comments Section */}
                 <div className={styles.CommentsSection}>
