@@ -33,7 +33,7 @@ A responsive web app.
 - GitHub Actions
 - Figma
 
-![DatabaseERDDiagram](/public/SocialDatabaseERDv0.png)
+![DatabaseERDDiagram](/public/SocialDatabaseERDv1.png)
 
 ## 📲 Prototype
 Check out the user journey through [our prototype](https://www.figma.com/proto/9uZsjvMKX6z9Pf7KtNmscD/Flock?page-id=1%3A2&node-id=1-3&p=f&viewport=440%2C600%2C0.25&t=8ha3Zu2GxjHWY96g-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A3).
