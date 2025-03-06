@@ -1,44 +1,68 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Align items to the start to prevent pushing down */
-    height: 100vh; /* Make the container take up the full viewport height */
-    padding: 20px; /* Add padding to the container */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: space-between;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #dfdfdf;
+
+  padding: 0;
+  margin: 0;
+}
+
+.centerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .textSection {
-    flex: 1;
-    padding: 20px;
-    border-radius: 2em;
-    border: 1px solid #dfdfdf; /* Add border property */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    overflow-y: auto; /* Add vertical scroll if content overflows */
-    margin-right: 20px; /* Add margin to the right to create space between sections */
+  display: flex;
+  flex-direction: column;
+  line-height: 120%;
+  padding: 20px;
+  border-radius: 2em;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  margin-top: 10px;
+  font-family: "N-light";
+  background-color: #f8f5f3;
+  max-width: 80vw;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
-.imageSection {
-    flex: 1;
-    padding-top: 150px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center content vertically within the section */
-    border-radius: 2em;
-    border: 1px solid #dfdfdf; 
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+.flockLogo {
+  font-family: "N-ExtraBold";
+  font-size: 25px;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
-.imageSection img {
-    max-width: 100%;
-    height: auto;
+.logoContainer {
+  display: flex;
+  width: 100vw;
+  height: 25vh;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
-.pullQuote {
-    margin-top: 20px;
-    font-style: italic;
-    text-align: center;
+.footerContainer {
+  display: flex;
+  width: 100vw;
+  height: 35vh;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.footerText {
+  font-family: "N-ExtraBold";
+  font-size: 75px;
+  padding-left: 10px;
+  color: #f8f5f3;
 }

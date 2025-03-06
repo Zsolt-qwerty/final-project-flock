@@ -23,6 +23,9 @@ export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [editedUser, setEditedUser] = useState<User>(user);
 
+  const [bannerColor, setBannerColor] = useState<string>("#275aff");
+
+
   useEffect(() => {
     const storedUser = localStorage.getItem("userProfile");
     if (storedUser) {
@@ -48,7 +51,10 @@ export default function ProfilePage() {
 
   return (
     <div className={styles.profileContainer}>
-      <div className={styles.banner}></div>
+      <div
+        className={styles.banner}
+        style={{ backgroundColor: bannerColor }}
+      ></div>
       <div className={styles.imageEditingContainer}>
         <div className={styles.imageContainer}>
           <Image
@@ -59,7 +65,11 @@ export default function ProfilePage() {
             height={200}
           />
         </div>
-        <EditingCard isEditing={isEditing} setIsEditing={setIsEditing} />
+        <EditingCard
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+          setBannerColor={setBannerColor}
+        />
       </div>
       <div className={styles.bioHubsContainer}>
         <BioCard
