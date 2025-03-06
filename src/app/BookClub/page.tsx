@@ -120,7 +120,10 @@ export default function SingleHub() {
     <div className={styles.pageContainer}>
       <div className={styles.ForumContainer}>
         <div className={styles.titleContainer}>
-          <p className={styles.hubName}>book club</p>
+          <p className={styles.hubName}>
+            book <br />
+            club
+          </p>
         </div>
         <div className={styles.boardContainer}>
           <div className={styles.ForumBoard}>
@@ -188,10 +191,10 @@ export default function SingleHub() {
         </div>
       </div>
       <div className={styles.eventCarouselLogoDiv}>
-         <p className={styles.flockLogo}>FLOCK</p>
-         <div className={styles.eventCarouselDiv}>
+        <p className={styles.flockLogo}>FLOCK</p>
+        <div className={styles.eventCarouselDiv}>
           <EventCarousel />
-        </div> 
+        </div>
       </div>
     </div>
   );
