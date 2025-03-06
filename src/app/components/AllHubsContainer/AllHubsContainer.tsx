@@ -30,7 +30,7 @@ const AllHubContainer = () => {
       <HubCard label="Reading" href="/SingleHub" className={styles.hubButton} />
       <HubCard
         label="Book Club"
-        href="/Bookclub"
+        href="/BookClub"
         className={styles.hubButton}
       />
       <HubCard label="Music" href="/SingleHub" className={styles.hubButton} />
@@ -43,7 +43,7 @@ const AllHubContainer = () => {
         href="/SingleHub"
         className={styles.hubButton}
       />
-      <HubCard label="Martial Arts" href="/Martialarts" className={styles.hubButton} />
+      <HubCard label="Martial Arts" href="/MartialArts" className={styles.hubButton} />
       <HubCard label="Gaming" href="/SingleHub" className={styles.hubButton} />
       <HubCard
         label="Birdwatching"

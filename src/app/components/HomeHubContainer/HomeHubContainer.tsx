@@ -14,6 +14,7 @@ const HomeHubContainer = () => {
           <HubCard label="Photography" href="/Photography"/>
           <HubCard label="Art" href="/Arts"/>
           <HubCard label="Techno" href="/Techno"/>
+          <HubCard label="Martial Arts" href="/MartialArts"/>
         </div>
       );
     };
