@@ -1,7 +1,7 @@
 .buttonDiv {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 70vw;
   height: 50vh;
   flex-wrap: wrap;
@@ -9,14 +9,17 @@
 
 .hubButton {
   padding: 20px;
-  width: 150px;
+  width: 15vw;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px;
-  border-radius: 30px;
+  border-radius: 5vh;
   font-family: "N-Light";
-  font-size: 18px;
+  font-size: 3vh;
   background-color: #dfdfdf;
   border: none;
+}
+.hubButton:hover {
+  transform: scale(1.05);
 }
