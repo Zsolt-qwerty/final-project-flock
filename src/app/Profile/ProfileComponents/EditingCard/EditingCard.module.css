@@ -35,6 +35,10 @@
   margin: 3px;
 }
 
+.colorButton:hover {
+  transform: scale(1.1); /* Button grows by 10% on hover */
+}
+
 .colourButtonDiv {
   width: 110px;
   background-color: white;
