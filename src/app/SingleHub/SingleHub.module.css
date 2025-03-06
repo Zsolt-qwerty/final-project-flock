@@ -71,10 +71,36 @@
   width: 60vw;
   height: 60vh;
   border: 1px solid #ddd;
-  background-color: white;
+  overflow-y: auto; /* Prevents scrollbar from going outside */
+  background-color: #f8f5f3;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 5vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+.ForumBoard::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar */
+  height: 10vh;
+}
+
+.ForumBoard::-webkit-scrollbar-thumb {
+  background: grey; /* Scrollbar color */
+  border-radius: 5vh;
+}
+
+.ForumBoard::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5vh;
+}
+.post {
+  background-color: #dfdfdf;
+  border-radius: 3vh;
+  font-family: "N-Light";
+  padding: 2vh;
+  margin: 10px;
+  font-size: 1.8vh;
 }
 
 .Carousel {
