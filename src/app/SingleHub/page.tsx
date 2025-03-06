@@ -4,10 +4,12 @@ import EventCarousel from "../components/Events/EventsCarousel";
 import styles from "./SingleHub.module.css";
 
 interface Post {
+
     post_id: string;
     post_text: string;
     post_title: string;
     comments: string[]; // Add comments array to each post
+
 }
 // interface NewPost {
 //     user_id: string;
@@ -15,7 +17,6 @@ interface Post {
 //     post_title: string
 //     post_text: string;
 // };
-
 
 export default function SingleHub() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -54,7 +55,6 @@ export default function SingleHub() {
         fetchPosts();
     }, []);
 
-    // Add new post
     const handleAddPost = async () => {
         try {
             // Log what we're sending
@@ -64,7 +64,6 @@ export default function SingleHub() {
                 post_title: newPostTitle,
                 post_text: newPostContent
             });
-
             const response = await fetch('/api/posts', {
                 method: 'POST',
                 headers: {
@@ -77,6 +76,7 @@ export default function SingleHub() {
                     post_text: newPostContent
                 })
             });
+
 
             const data = await response.json();
             console.log('Response data:', data); // Debug log
@@ -106,43 +106,52 @@ export default function SingleHub() {
         }
     };
 
-    // Add new comment to a post
-    // const handleAddComment = (postId: string, comment: string) => {}
-    //     setPosts(
-    //         posts.map((post) =>
-    //             post.post_id === postId
-    //                 ? { ...post, comments: [...post.comments, comment] }
-    //                 : post
-    //         )
-    //     );
-    //     setNewComment(""); // Reset the new comment input field
-    // };
 
-    return (
-        <div>
-            <h1 className={styles.Header}>Forum Board</h1>
-            <div className={styles.ForumContainer}>
-                <div className={styles.ForumBoard}>
-                    {posts.map((post) => (
-                        <div key={post.post_id} className={styles.Post}>
-                            <h2>{post.post_title}</h2>
-                            <p>{post.post_text}</p>
+  // Add new comment to a post
+  // const handleAddComment = (postId: string, comment: string) => {}
+  //     setPosts(
+  //         posts.map((post) =>
+  //             post.post_id === postId
+  //                 ? { ...post, comments: [...post.comments, comment] }
+  //                 : post
+  //         )
+  //     );
+  //     setNewComment(""); // Reset the new comment input field
+  // };
 
-                            {/* Comments Section */}
-                            <div className={styles.CommentsSection}>
-                                <h3>Comments:</h3>
-                                {post.comments.length > 0 ? (
-                                    post.comments.map((comment, index) => (
-                                        <p key={`${post.post_id}-${index}`} className={styles.CommentName}>
-                                            - {comment}
-                                        </p>
-                                    ))
-                                ) : (
-                                    <p>No comments yet.</p>
-                                )}
 
-                                {/* Comment input for each post */}
-                                {/* <input
+  return (
+    <div className={styles.pageContainer}>
+      <div className={styles.ForumContainer}>
+        <div className={styles.titleContainer}>
+          <p className={styles.hubName}>stamps</p>
+        </div>
+        <div className={styles.boardContainer}>
+          <div className={styles.ForumBoard}>
+            {posts.map((post) => (
+              <div key={post.post_id} className={styles.Post}>
+                {/* <h2>{post.title}</h2> */}
+                <p>{post.post_text}</p>
+
+
+                {/* Comments Section */}
+                <div className={styles.CommentsSection}>
+                  <h3>Comments:</h3>
+                  {post.comments.length > 0 ? (
+                    post.comments.map((comment, index) => (
+                      <p
+                        key={`${post.post_id}-${index}`}
+                        className={styles.CommentName}
+                      >
+                        - {comment}
+                      </p>
+                    ))
+                  ) : (
+                    <p>No comments yet.</p>
+                  )}
+
+                  {/* Comment input for each post */}
+                  {/* <input
                                     type="text"
                                     value={newComment}
                                     placeholder="Write a comment..."
@@ -153,30 +162,42 @@ export default function SingleHub() {
                                         }
                                     }}
                                 /> */}
-                            </div>
-                        </div>
-                    ))}
                 </div>
-
-                {/* Create Post Section */}
-                <div className={styles.PostCreator}>
-                    <h2>Create a Post</h2>
-                    <input
-                        type="text"
-                        placeholder="Post title"
-                        value={newPostTitle}
-                        onChange={(e) => setNewPostTitle(e.target.value)}
-                    />
-                    <textarea
-                        placeholder="Write your post..."
-                        rows={4}
-                        value={newPostContent}
-                        onChange={(e) => setNewPostContent(e.target.value)}
-                    />
-                    <button onClick={handleAddPost}>Post</button>
-                </div>
+              </div>
+            ))}
+          </div>
+          {/* Create Post Section */}
+          <div className={styles.PostCreator}>
+            <div className={styles.inputContainer}>
+              <div className={styles.titleButtonContainer}>
+                <input
+                  className={styles.titleBox}
+                  type="text"
+                  placeholder="Post title"
+                  value={newPostTitle}
+                  onChange={(e) => setNewPostTitle(e.target.value)}
+                />
+                <button className={styles.submitButton} onClick={handleAddPost}>
+                  Post
+                </button>
+              </div>
+              <textarea
+                className={styles.bodyInputBox}
+                placeholder="Write your post..."
+                rows={4}
+                value={newPostContent}
+                onChange={(e) => setNewPostContent(e.target.value)}
+              />
             </div>
-            <EventCarousel />
+          </div>
         </div>
-    );
-}
+      </div>
+      <div className={styles.eventCarouselLogoDiv}>
+        <p className={styles.flockLogo}>FLOCK</p>
+        <div className={styles.eventCarouselDiv}>
+          <EventCarousel />
+        </div>
+      </div>
+    </div>
+  );
+};
