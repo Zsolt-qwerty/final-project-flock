@@ -73,8 +73,8 @@ export default function BurgerMenu() {
               Logout
             </button>
           ) : (
-            <div>
-              <input
+            <div className={styles.bottomDiv}>
+              {/* <input
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -85,7 +85,7 @@ export default function BurgerMenu() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
+              /> */}
               <button className={styles.loginButton} onClick={handleSignIn}>
                 Login
               </button>

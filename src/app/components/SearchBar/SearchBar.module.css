@@ -4,9 +4,11 @@
 } */
 
 .inputBox {
-  width: 40vw;
+  width: 38vw;
+  height: 3vh;
   padding: 10px;
   font-family: "N-Light";
+  font-size: 2vh;
   border: none;
   border-radius: 20px;
 }

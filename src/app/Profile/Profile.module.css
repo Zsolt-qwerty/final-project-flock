@@ -17,10 +17,10 @@
   grid-column: 1;
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 10vh;
   align-items: flex-end;
   justify-content: center;
-  padding-right: 5px;
+  padding-right: 2vh;
   transform: translateY(-30vh);
 }
 
@@ -28,17 +28,16 @@
   grid-column: 2;
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 13vh;
   align-items: flex-start;
   justify-content: center;
   transform: translateY(-30vh);
 }
 
 .imageContainer {
-  width: 170px;
-  height: 180px;
-  padding-right: 10px;
-  margin-right: 25px;
+  width: 20vh;
+  height: 20vh;
+  margin-right: 4vh;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -61,10 +60,10 @@
   padding: 30px;
   margin-bottom: 30px;
   border-radius: 40px;
-  height: 30vh;
+  height: 40vh;
   overflow: hidden;
   font-family: "N-light";
-  font-size: 18px;
+  font-size: 3vh;
   letter-spacing: 0.02rem;
   line-height: 110%;
 }
