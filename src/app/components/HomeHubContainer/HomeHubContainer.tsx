@@ -9,7 +9,8 @@ import HubCard from '../HubCard/HubCard';
 const HomeHubContainer = () => {
     return (
         <div>
-          <HubCard label="Stamps" href="/SingleHub"/>
+          <HubCard label="Stamps" href="/Stamps"/>
+          <HubCard label="Photography" href="/Photography"/>
         </div>
       );
     };
