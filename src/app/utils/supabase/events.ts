@@ -49,3 +49,4 @@
 // // Create a post which will be under a specific Hub or Event
 
 // export default { getEventByLocation, getEventsByInterest, addEvent }
+console.log("Hello");
