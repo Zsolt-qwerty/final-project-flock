@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styles from "./AboutUs.module.css";
-import Image from "next/image";
+// import Image from "next/image";
 // This component serves as the About us for the route (/about-us).
 
 const AboutUs: FC = () => {
