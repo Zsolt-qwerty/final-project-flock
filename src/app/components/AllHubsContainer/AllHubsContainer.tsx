@@ -10,7 +10,7 @@ import styles from "./AllHubsContainer.module.css";
 const AllHubContainer = () => {
   return (
     <div className={styles.buttonDiv}>
-      <HubCard label="Stamps" href="/Stamps" className={styles.hubButton} />
+      <HubCard label="Stamps" href="/SingleHub" className={styles.hubButton} />
       <HubCard
         label="Photography"
         href="/SingleHub"
@@ -49,7 +49,7 @@ const AllHubContainer = () => {
         href="/SingleHub"
         className={styles.hubButton}
       />
-      <HubCard label="Art" href="/SingleHub" className={styles.hubButton} />
+      <HubCard label="Art" href="/Arts" className={styles.hubButton} />
     </div>
   );
 };
