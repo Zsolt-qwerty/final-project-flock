@@ -46,17 +46,16 @@ export default function Home() {
       </div>
       <div className={styles.textCardContainer}>
         <p className={styles.bioText}>
-          At Flock we belive that if you care about something, there is someone
-          out there who cares about that thing too. Lets get you connected.
+          At Flock, we believe that if you care about something, there is
+          someone out there who cares about that thing too. Lets get you
+          connected.
         </p>
+
+        <p className={styles.trendingHubs}>Trending hubs</p>
 
         <div className={styles.hubDiv}>
           <HubCard label="art" href="/Arts" className={styles.homeButtonArt} />
-          <HubCard
-            label="photos"
-            href="/Photography"
-            className={styles.homeButtonPhotos}
-          />
+
           <HubCard
             label="stamps"
             href="/SingleHub"
@@ -71,6 +70,11 @@ export default function Home() {
             label="book club"
             href="/BookClub"
             className={styles.homeButtonBookClub}
+          />
+          <HubCard
+            label="photos"
+            href="/Photography"
+            className={styles.homeButtonPhotos}
           />
           <HubCard
             label="martial arts"

@@ -61,3 +61,19 @@ a {
   text-decoration: none;
   color: inherit; /* Makes the link inherit the text color from its parent */
 }
+
+@media (max-width: 768px) {
+  /* Ensure no horizontal overflow */
+  body,
+  html {
+    width: 100vw;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure all containers fit within the viewport */
+  * {
+    box-sizing: border-box;
+  }
+}
