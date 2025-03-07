@@ -1,10 +1,22 @@
 import styles from "./EditingCard.module.css";
 import { useState } from "react";
 
+// Define a type for the valid banner colors
+type BannerColor =
+  | "#ff3f3f"
+  | "#feabab"
+  | "#ff8534"
+  | "#ffd955"
+  | "#275aff"
+  | "#4b6e49"
+  | "#f8f5f3"
+  | "#dfdfdf"
+  | "#000000";
+
 interface EditingCardProps {
   isEditing: boolean;
   setIsEditing: (editing: boolean) => void;
-  setBannerColor: React.Dispatch<React.SetStateAction<string>>;
+  setBannerColor: React.Dispatch<React.SetStateAction<BannerColor>>;
 }
 
 export default function EditingCard({
