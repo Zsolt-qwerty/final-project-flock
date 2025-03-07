@@ -49,11 +49,11 @@ export default function ProfilePage() {
     }
   }, []);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setEditedUser({ ...editedUser, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   setEditedUser({ ...editedUser, [e.target.name]: e.target.value });
+  // };
   const handleSave = () => {
     setUser(editedUser);
     localStorage.setItem("userProfile", JSON.stringify(editedUser));
@@ -89,9 +89,9 @@ export default function ProfilePage() {
       <div className={styles.bioHubsContainer}>
         <BioCard
           // user={user}
-          editedUser={editedUser}
+          // editedUser={editedUser}
           isEditing={isEditing}
-          handleChange={handleChange}
+          // handleChange={handleChange}
           handleSave={handleSave}
           handleCancel={handleCancel}
         />
