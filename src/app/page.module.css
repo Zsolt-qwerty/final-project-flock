@@ -205,3 +205,137 @@
   background-color: #ff8534; /* Color on hover */
   transform: scale(1.05); /* Slightly grows the button */
 }
+
+@media (max-width: 768px) {
+  /* Make the logo smaller */
+  .pageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f5f3;
+  }
+
+  .navLogoContainer {
+    display: flex;
+    height: 10vh;
+    margin-top: 3vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headerLogo {
+    font-size: 0vh;
+  }
+
+  .flockText {
+    font-family: "N-ExtraBold";
+    font-size: 3vh;
+    margin-right: 20px;
+    padding-bottom: 10px;
+  }
+
+  /* Move the bio text to the bottom and make text smaller */
+  .bioText {
+    grid-column: 1 / 3;
+    font-size: 2.2vh;
+    text-align: center;
+  }
+
+  /* Make trending hubs smaller and stacked vertically */
+  .trendingHubs {
+    font-size: 1.8vh;
+    margin-bottom: 2vh;
+    margin-left: 0vh;
+    text-align: center;
+  }
+
+  /* Stack the home buttons vertically */
+  .homeButtonArt,
+  .homeButtonPhotos,
+  .homeButtonStamps,
+  .homeButtonTechno,
+  .homeButtonBookClub,
+  .homeButtonMartialArts {
+    width: 80vw;
+    margin-bottom: 2vh;
+    font-size: 3.5vh;
+  }
+
+  .searchBarContainer {
+    width: 80vw;
+    height: 12vh;
+    justify-content: center;
+    margin-top: 3vh;
+  }
+
+  .textCardContainer {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  /* Make all text black */
+  .headerLogo,
+  .bioText,
+  .trendingHubs,
+  .homeButtonArt,
+  .homeButtonPhotos,
+  .homeButtonStamps,
+  .homeButtonTechno,
+  .homeButtonBookClub,
+  .homeButtonMartialArts {
+    color: black;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce font size on very small screens */
+  .pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 120vh;
+    background-color: #f8f5f3;
+  }
+
+  .headerLogo {
+    font-size: 0.3vh;
+    margin-left: 0.5vh;
+  }
+
+  .bioText {
+    font-size: 2vh;
+    margin-top: 0;
+    margin-right: 5vw;
+  }
+
+  .trendingHubs {
+    font-size: 1.5vh;
+    margin-top: 3vh;
+    margin-right: 5vw;
+  }
+
+  .homeButtonArt,
+  .homeButtonPhotos,
+  .homeButtonStamps,
+  .homeButtonTechno,
+  .homeButtonBookClub,
+  .homeButtonMartialArts {
+    width: 80vw;
+    height: 14vh;
+    padding: 6vw;
+    font-size: 4vh;
+  }
+
+  .searchBarContainer {
+    height: 12vh;
+    margin-top: 0vh;
+  }
+
+  .textCardContainer {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    height: 120;
+    margin-left: 11vw;
+    padding: 1vw;
+  }
+}
