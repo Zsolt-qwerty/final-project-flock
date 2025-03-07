@@ -106,3 +106,53 @@
   display: flex;
   align-items: flex;
 }
+
+@media (max-width: 768px) {
+  .menuContainer {
+    width: 100%; /* Make menu full width on smaller screens */
+    height: 100vh; /* Ensure the menu still takes full height */
+    position: fixed; /* Keep it fixed on the screen */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+
+  .menuList {
+    font-size: 2.5vh; /* Adjust font size for smaller screens */
+  }
+
+  .menuButton {
+    font-size: 3vh; /* Adjust menu button font size */
+  }
+
+  .bmListItems {
+    font-size: 2.5vh; /* Adjust font size for list items */
+    padding: 1vh 1.5vh;
+  }
+
+  .loginButton {
+    font-size: 2.2vh; /* Adjust login button font size */
+    padding: 0px 8px 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menuContainer {
+    width: 100%; /* Ensure full width on very small screens */
+    height: 100vh;
+  }
+
+  .menuButton {
+    font-size: 2.5vh; /* Reduce menu button font size further */
+  }
+
+  .bmListItems {
+    font-size: 4vh; /* Adjust font size further */
+    padding: 1.2vh 1.8vh;
+  }
+
+  .loginButton {
+    font-size: 2vh; /* Smaller font size for the login button */
+    padding: 0px 6px 5px 8px;
+  }
+}

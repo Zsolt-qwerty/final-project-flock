@@ -78,3 +78,104 @@
   margin-left: 3vh;
   margin-bottom: 3vh;
 }
+
+@media (max-width: 768px) {
+  /* Adjust grid layout */
+  .profileContainer {
+    grid-template-columns: 1fr; /* Stack the columns vertically */
+    height: auto;
+    width: 100vw;
+  }
+
+  /* Adjust banner height */
+  .banner {
+    height: 25vh;
+  }
+
+  /* Make the image smaller */
+  .imageContainer {
+    width: 15vh;
+    height: 15vh;
+  }
+
+  .profileImage {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Adjust the text and containers */
+  .imageEditingContainer,
+  .bioHubsContainer {
+    margin-top: 5vh;
+    transform: translateY(0); /* Reset translation */
+    align-items: center; /* Center items */
+  }
+  .bioHubsContainer {
+    margin-top: 5vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transform: translateY(0); /* Reset translation */
+    align-items: center; /* Center items */
+  }
+
+  .favHubsContainer {
+    width: 70vw; /* Make it smaller */
+    height: auto; /* Allow it to scale */
+    padding: 2vh;
+    font-size: 2.5vh;
+  }
+
+  .joinedHubs {
+    font-size: 2vh;
+    margin-left: 2vh;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjust for smaller screens */
+  .profileContainer {
+    grid-template-columns: 1fr; /* Stack vertically */
+    height: auto;
+    width: 100vw;
+  }
+
+  /* Further adjust banner */
+  .banner {
+    height: 20vh;
+  }
+
+  /* Further adjust image size */
+  .imageContainer {
+    width: 12vh;
+    height: 12vh;
+  }
+
+  .profileImage {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Further adjust containers */
+  .imageEditingContainer,
+  .bioHubsContainer {
+    margin-top: 3vh;
+    padding-left: 4vw;
+    padding-right: 1vw;
+    transform: translateY(0);
+  }
+
+  .favHubsContainer {
+    width: 80vw;
+    height: auto;
+    padding: 1.5vh;
+    font-size: 2vh;
+  }
+
+  .joinedHubs {
+    font-size: 1.8vh;
+    margin-left: 1.5vh;
+  }
+}
