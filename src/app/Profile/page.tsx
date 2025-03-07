@@ -25,7 +25,6 @@ export default function ProfilePage() {
 
   const [bannerColor, setBannerColor] = useState<string>("#275aff");
 
-
   useEffect(() => {
     const storedUser = localStorage.getItem("userProfile");
     if (storedUser) {
@@ -81,7 +80,7 @@ export default function ProfilePage() {
           handleCancel={handleCancel}
         />
         <div className={styles.favHubsContainer}>
-          <h3>Joined Hubs:</h3>
+          <h3 className={styles.joinedHubs}>Joined Hubs</h3>
           <HubContainer />
         </div>
       </div>

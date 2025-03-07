@@ -24,7 +24,7 @@ export default function EditingCard({
       </button>
 
       <button
-        className={styles.editingButton} // Same class as the edit profile button
+        className={styles.editingButtonBanner} // Same class as the edit profile button
         onClick={() => setIsBannerOpen(!isBannerOpen)}
         style={{ marginTop: "10px" }}
       >
