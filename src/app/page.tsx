@@ -50,13 +50,11 @@ export default function Home() {
           out there who cares about that thing too. Lets get you connected.
         </p>
 
+        <p className={styles.trendingHubs}>Trending hubs</p>
+
         <div className={styles.hubDiv}>
           <HubCard label="art" href="/Arts" className={styles.homeButtonArt} />
-          <HubCard
-            label="photos"
-            href="/Photography"
-            className={styles.homeButtonPhotos}
-          />
+
           <HubCard
             label="stamps"
             href="/SingleHub"
@@ -71,6 +69,11 @@ export default function Home() {
             label="book club"
             href="/BookClub"
             className={styles.homeButtonBookClub}
+          />
+          <HubCard
+            label="photos"
+            href="/Photography"
+            className={styles.homeButtonPhotos}
           />
           <HubCard
             label="martial arts"
