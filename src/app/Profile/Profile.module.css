@@ -72,3 +72,15 @@
 .favHubsContainer:hover {
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
 }
+
+.loginMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f5f3;
+  color: #333;
+  font-size: 1.5rem; 
+  text-align: center;
+  font-family: "N-light";
+}

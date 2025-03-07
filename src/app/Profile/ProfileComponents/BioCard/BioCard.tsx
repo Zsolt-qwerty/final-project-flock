@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "./BioCard.module.css";
 
 interface BioCardProps {
@@ -48,24 +47,16 @@ export default function BioCard({
       ) : (
         <>
           <p>
-            <span className={styles.boldBio}></span> Hi I&apos;m Lara 🌸
+            <span className={styles.boldBio}></span> Hi I&apos;m {editedUser.name} 🌸
           </p>
           <p>I&apos;m based in the UK!</p>
-          <p>
-            I love stamp collecting and Art!
-            <br />I have a miniature labradoodle called Chris who comes with me
-            everywhere I go 🐕 If you want to reach out, I would love to
-            connect.
-          </p>
+          <p>{editedUser.bio}</p>
           <br />
           <p>
-            <span className={styles.boldBio}>Lar297</span>
+            <span className={styles.boldBio}>{editedUser.name}</span>
           </p>
           <p>
-            <span className={styles.boldBio}></span> Lara Thompson
-          </p>
-          <p>
-            <span className={styles.boldBio}>Email:</span> lara97@hotmail.co.uk
+            <span className={styles.boldBio}>Email:</span> {editedUser.email}
           </p>
         </>
       )}
