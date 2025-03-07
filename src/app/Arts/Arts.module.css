@@ -18,8 +18,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
   height: 100vh;
-  background-color: #275aff;
-
+  background-color: #ffd955;
   overflow: hidden;
 }
 
@@ -49,7 +48,7 @@
   display: flex;
   align-items: center;
   height: 100vh;
-  width: 58vw;
+  width: 70vw;
 
   justify-content: center;
 }
@@ -141,7 +140,7 @@
 }
 .hubName {
   font-family: "N-Extrabold";
-  font-size: 4vw;
+  font-size: 5.5vw;
   letter-spacing: 2px;
   max-width: 100%;
 }

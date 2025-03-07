@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./BurgerMenu.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { signIn, signOut, signUp } from "../../utils/supabase/auth";
 import { User } from "@supabase/supabase-js";
@@ -12,6 +12,13 @@ export default function BurgerMenu() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  // --- for solving deployment issues ---
+  useEffect(() => {
+    setEmail("");
+    setPassword("");
+  }, []);
+  // --- end of solving deployment issues ---
 
   const handleSignIn = async () => {
     const { user, error } = await signIn(email, password);
@@ -73,8 +80,8 @@ export default function BurgerMenu() {
               Logout
             </button>
           ) : (
-            <div>
-              <input
+            <div className={styles.bottomDiv}>
+              {/* <input
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -85,7 +92,7 @@ export default function BurgerMenu() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
+              /> */}
               <button className={styles.loginButton} onClick={handleSignIn}>
                 Login
               </button>

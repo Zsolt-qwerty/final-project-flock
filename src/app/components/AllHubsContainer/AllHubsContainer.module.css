@@ -8,7 +8,7 @@
 }
 
 .hubButton {
-  padding: 20px;
+  padding: 3vh;
   width: 15vw;
   display: flex;
   align-items: center;
@@ -22,4 +22,28 @@
 }
 .hubButton:hover {
   transform: scale(1.05);
+}
+
+.yellowHover:hover {
+  background-color: #ffd955;
+}
+
+.orangeHover:hover {
+  background-color: #ff8534;
+}
+
+.greenHover:hover {
+  background-color: #4b6e49;
+}
+
+.coralHover:hover {
+  background-color: #feabab;
+}
+
+.redHover:hover {
+  background-color: #ff3f3f;
+}
+
+.blueHover:hover {
+  background-color: #275aff;
 }
