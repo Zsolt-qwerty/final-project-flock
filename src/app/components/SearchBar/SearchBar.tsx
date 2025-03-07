@@ -10,7 +10,6 @@ export default function SearchBar() {
   const handleSearch = () => {
     if (searchTerm.trim()) {
       router.push(`/${encodeURIComponent(searchTerm)}`);
-      setSearchTerm(''); // Clear the search input after search
     }
   };
 
