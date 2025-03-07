@@ -13,12 +13,18 @@ interface BioCardProps {
   handleCancel: () => void;
 }
 
+interface EditedUser {
+  name: string;
+  email: string;
+  bio: string;
+}
+
 export default function BioCard({
   isEditing,
   handleSave,
   handleCancel,
 }: BioCardProps) {
-  const [editedUser, setEditedUser] = useState({
+  const [editedUser, setEditedUser] = useState<EditedUser>({
     name: "Lara Thompson",
     email: "lara97@hotmail.co.uk",
     bio: `Hi I'm Lara 🌸

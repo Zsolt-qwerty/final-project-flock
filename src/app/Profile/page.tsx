@@ -13,6 +13,17 @@ interface User {
   hubsJoined: string[];
 }
 
+type BannerColor =
+  | "#ff3f3f"
+  | "#feabab"
+  | "#ff8534"
+  | "#ffd955"
+  | "#275aff"
+  | "#4b6e49"
+  | "#f8f5f3"
+  | "#dfdfdf"
+  | "#000000";
+
 export default function ProfilePage() {
   const [user, setUser] = useState<User>({
     name: "",
@@ -21,9 +32,14 @@ export default function ProfilePage() {
     hubsJoined: [],
   });
   const [isEditing, setIsEditing] = useState(false);
-  const [editedUser, setEditedUser] = useState<User>(user);
+  const [editedUser, setEditedUser] = useState<User>({
+    name: "",
+    email: "",
+    bio: "",
+    hubsJoined: [],
+  });
 
-  const [bannerColor, setBannerColor] = useState<string>("#275aff");
+  const [bannerColor, setBannerColor] = useState<BannerColor>("#275aff");
 
   useEffect(() => {
     const storedUser = localStorage.getItem("userProfile");
