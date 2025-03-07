@@ -12,14 +12,15 @@ export default function Home() {
       const script = document.createElement("script");
       script.async = true;
       script.type = "module";
-      script.src = "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
+      script.src =
+        "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
       document.head.appendChild(script);
-
-      const chatbotEmbed = document.createElement("zapier-interfaces-chatbot-embed");
+      const chatbotEmbed = document.createElement(
+        "zapier-interfaces-chatbot-embed"
+      );
       chatbotEmbed.setAttribute("is-popup", "true");
       chatbotEmbed.setAttribute("chatbot-id", "cm7tb1hrx000pw6c0hvbhcpm7");
       document.body.appendChild(chatbotEmbed);
-
       return () => {
         document.head.removeChild(script);
         document.body.removeChild(chatbotEmbed);
