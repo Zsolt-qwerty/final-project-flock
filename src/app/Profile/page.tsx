@@ -24,7 +24,7 @@ export default function ProfilePage() {
   // Fetch user data from Supabase and set it
   useEffect(() => {
     const fetchUserData = async () => {
-      const { data, error } = await supabase.auth.getUser();
+      const { data } = await supabase.auth.getUser();
       if (data?.user) {
         // Fetch additional user info from the database
         const { data: userData } = await supabase
@@ -36,13 +36,13 @@ export default function ProfilePage() {
         if (userData) {
           setUser({
             name: userData.user_name,
-            email: data.user.email,
+            email: data.user.email ?? "",
             bio: userData.user_bio,
-            hubsJoined: [], // Add logic for hubs if needed
+            hubsJoined: [],
           });
           setEditedUser({
             name: userData.user_name,
-            email: data.user.email,
+            email: data.user.email ?? "",
             bio: userData.user_bio,
             hubsJoined: [],
           });
