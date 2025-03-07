@@ -1,15 +1,35 @@
+.bioCardScrollContainer {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  width: 54vw;
+  height: 24vh;
+  margin-bottom: 30px;
+  border-radius: 40px;
+
+  overflow: hidden;
+  font-family: "N-light";
+  font-size: 2vh;
+  letter-spacing: 0.02rem;
+  line-height: 110%;
+  box-shadow: 0.2vw 0.2vh 0.8vw rgba(0, 0, 0, 0.1);
+  overflow-y: hidden;
+}
+
 .bioCardContainer {
   background-color: white;
   width: 50vw;
-  padding: 30px;
+  padding: 4vh;
   margin-bottom: 30px;
   border-radius: 40px;
   height: 20vh;
   overflow: hidden;
   font-family: "N-light";
-  font-size: 14px;
+  font-size: 2vh;
   letter-spacing: 0.02rem;
   line-height: 110%;
+  box-shadow: 0.2vw 0.2vh 0.8vw rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
 }
 
 .bioCardContainer:hover {
@@ -18,4 +38,36 @@
 
 .boldBio {
   font-family: "N-regular";
+}
+
+.inputField,
+.textArea {
+  width: 40vw; /* Adjust width based on viewport */
+  padding: 0.5vw;
+  border: 0.8px solid black; /* Thin black border */
+  border-radius: 1vw; /* Slightly rounded corners */
+  font-size: 1.2vw;
+  font-family: "N-Light";
+}
+
+.textArea {
+  height: 10vw;
+  resize: none;
+}
+
+.inputFieldDiv {
+  width: 50vw;
+  padding: 2vh;
+  padding-top: 0.8vh;
+  display: grid;
+}
+
+.saveButton {
+  background-color: rgb(226, 226, 226);
+  border: none;
+  padding: 1.5vh;
+  margin: 1vh;
+  margin-left: 2vh;
+  border-radius: 2vh;
+  font-family: "N-Light";
 }

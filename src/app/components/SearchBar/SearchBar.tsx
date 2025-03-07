@@ -1,9 +1,7 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Correct for Next.js 13+
+import { useRouter } from "next/navigation"; 
 import styles from "./SearchBar.module.css";
-//these is the search bar
-//need to add css
 
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +14,6 @@ export default function SearchBar() {
   };
 
   return (
-    // <div className={styles.searchBarContainer}>
     <input
       id="searchBar"
       className={styles.inputBox}
@@ -24,8 +21,11 @@ export default function SearchBar() {
       placeholder="Search Hubs..."
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
-      onKeyDown={(e) => e.key === "Enter" && handleSearch()} // Press Enter to search
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          handleSearch();
+        }
+      }} // Press Enter to search
     />
-    // </div>
   );
 }

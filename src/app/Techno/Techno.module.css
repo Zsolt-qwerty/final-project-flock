@@ -18,7 +18,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
   height: 100vh;
-  background-color: #feb8b8;
+  background-color: #ff3f3f;
 
   overflow: hidden;
 }
@@ -42,14 +42,15 @@
 
 .eventCarouselDiv {
   display: flex;
-  height: 100%;
+  height: 80%;
 }
 .boardContainer {
   flex-direction: column;
   display: flex;
   align-items: center;
   height: 100vh;
-  width: 48vw;
+  width: 60vw;
+
   justify-content: center;
 }
 
@@ -65,14 +66,24 @@
   align-items: center;
   justify-content: space-between;
 }
+.scrollContainer {
+  overflow: hidden;
+  width: 60vw;
+  height: 60vh;
+  border-radius: 5vh;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 .ForumBoard {
   width: 60vw;
   height: 60vh;
   border: 1px solid #ddd;
-  overflow-y: auto; /* Prevents scrollbar from going outside */
+  overflow-y: auto;
+
+  padding-right: 10px;
   background-color: #f8f5f3;
-  padding: 10px;
+
   border-radius: 5vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   overflow-x: hidden;
@@ -85,7 +96,7 @@
 }
 
 .ForumBoard::-webkit-scrollbar-thumb {
-  background: grey; /* Scrollbar color */
+  background: #dfdfdf; /* Scrollbar color */
   border-radius: 5vh;
 }
 
@@ -130,8 +141,8 @@
 }
 .hubName {
   font-family: "N-Extrabold";
-  font-size: 3vw;
-  letter-spacing: 2px;
+  font-size: 4vw;
+
   max-width: 100%;
 }
 

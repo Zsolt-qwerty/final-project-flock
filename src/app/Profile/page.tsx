@@ -13,6 +13,17 @@ interface User {
   hubsJoined: string[];
 }
 
+type BannerColor =
+  | "#ff3f3f"
+  | "#feabab"
+  | "#ff8534"
+  | "#ffd955"
+  | "#275aff"
+  | "#4b6e49"
+  | "#f8f5f3"
+  | "#dfdfdf"
+  | "#000000";
+
 export default function ProfilePage() {
   const [user, setUser] = useState<User>({
     name: "",
@@ -21,10 +32,14 @@ export default function ProfilePage() {
     hubsJoined: [],
   });
   const [isEditing, setIsEditing] = useState(false);
-  const [editedUser, setEditedUser] = useState<User>(user);
+  const [editedUser, setEditedUser] = useState<User>({
+    name: "",
+    email: "",
+    bio: "",
+    hubsJoined: [],
+  });
 
-  const [bannerColor, setBannerColor] = useState<string>("#275aff");
-
+  const [bannerColor, setBannerColor] = useState<BannerColor>("#275aff");
 
   useEffect(() => {
     const storedUser = localStorage.getItem("userProfile");
@@ -34,11 +49,11 @@ export default function ProfilePage() {
     }
   }, []);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setEditedUser({ ...editedUser, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   setEditedUser({ ...editedUser, [e.target.name]: e.target.value });
+  // };
   const handleSave = () => {
     setUser(editedUser);
     localStorage.setItem("userProfile", JSON.stringify(editedUser));
@@ -74,14 +89,14 @@ export default function ProfilePage() {
       <div className={styles.bioHubsContainer}>
         <BioCard
           // user={user}
-          editedUser={editedUser}
+          // editedUser={editedUser}
           isEditing={isEditing}
-          handleChange={handleChange}
+          // handleChange={handleChange}
           handleSave={handleSave}
           handleCancel={handleCancel}
         />
         <div className={styles.favHubsContainer}>
-          <h3>Joined Hubs:</h3>
+          <h3 className={styles.joinedHubs}>Joined Hubs</h3>
           <HubContainer />
         </div>
       </div>

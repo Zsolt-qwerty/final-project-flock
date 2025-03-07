@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import styles from "./page.module.css";
-import HomeHubContainer from "./components/HomeHubContainer/HomeHubContainer";
+import HubCard from "./components/HubCard/HubCard";
 import SearchBar from "./components/SearchBar/SearchBar";
 // import Navbar from "./components/NavBar/NarBar";
 // This component serves as the main page for the root route (/).
@@ -15,6 +15,7 @@ export default function Home() {
       script.src =
         "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
       document.head.appendChild(script);
+      
       const chatbotEmbed = document.createElement(
         "zapier-interfaces-chatbot-embed"
       );
@@ -42,8 +43,44 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className={styles.hubDiv}>
-        <HomeHubContainer />
+      <div className={styles.textCardContainer}>
+        <p className={styles.bioText}>
+          At Flock, we believe that if you care about something, there is
+          someone out there who cares about that thing too. Lets get you
+          connected.
+        </p>
+
+        <p className={styles.trendingHubs}>Trending hubs</p>
+
+        <div className={styles.hubDiv}>
+          <HubCard label="art" href="/Arts" className={styles.homeButtonArt} />
+
+          <HubCard
+            label="stamps"
+            href="/SingleHub"
+            className={styles.homeButtonStamps}
+          />
+          <HubCard
+            label="techno"
+            href="/Techno"
+            className={styles.homeButtonTechno}
+          />
+          <HubCard
+            label="book club"
+            href="/BookClub"
+            className={styles.homeButtonBookClub}
+          />
+          <HubCard
+            label="photos"
+            href="/Photography"
+            className={styles.homeButtonPhotos}
+          />
+          <HubCard
+            label="martial arts"
+            href="/MartialArts"
+            className={styles.homeButtonMartialArts}
+          />
+        </div>
       </div>
     </main>
   );

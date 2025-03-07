@@ -10,47 +10,106 @@ import styles from "./AllHubsContainer.module.css";
 const AllHubContainer = () => {
   return (
     <div className={styles.buttonDiv}>
-      <HubCard label="Stamps" href="/SingleHub" className={styles.hubButton} />
+      <HubCard
+        label="Stamps"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.blueHover}`}
+      />
       <HubCard
         label="Photography"
         href="/Photography"
-        className={styles.hubButton}
+        className={`${styles.hubButton} ${styles.coralHover}`}
       />
       <HubCard
         label="Painting"
         href="/SingleHub"
-        className={styles.hubButton}
+        className={`${styles.hubButton} ${styles.yellowHover}`}
       />
-      <HubCard label="Cooking" href="/SingleHub" className={styles.hubButton} />
+      <HubCard
+        label="Cooking"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.greenHover}`}
+      />
       <HubCard
         label="Gardening"
         href="/SingleHub"
-        className={styles.hubButton}
+        className={`${styles.hubButton} ${styles.orangeHover}`}
       />
-      <HubCard label="Reading" href="/SingleHub" className={styles.hubButton} />
+      <HubCard
+        label="Reading"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.redHover}`}
+      />
       <HubCard
         label="Book Club"
-        href="/Bookclub"
-        className={styles.hubButton}
+        href="/BookClub"
+        className={`${styles.hubButton} ${styles.greenHover}`}
       />
-      <HubCard label="Music" href="/SingleHub" className={styles.hubButton} />
-      <HubCard label="Hiking" href="/SingleHub" className={styles.hubButton} />
-      <HubCard label="Cycling" href="/SingleHub" className={styles.hubButton} />
-      <HubCard label="Coding" href="/SingleHub" className={styles.hubButton} />
-      <HubCard label="Techno" href="/Techno" className={styles.hubButton} />
+      <HubCard
+        label="Music"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.blueHover}`}
+      />
+      <HubCard
+        label="Hiking"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.coralHover}`}
+      />
+      <HubCard
+        label="Cycling"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.yellowHover}`}
+      />
+      <HubCard
+        label="Sewing"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.orangeHover}`}
+      />
+      <HubCard
+        label="Cars"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.greenHover}`}
+      />
+      <HubCard
+        label="Jazz"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.redHover}`}
+      />
+      <HubCard
+        label="Coding"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.blueHover}`}
+      />
+      <HubCard
+        label="Techno"
+        href="/Techno"
+        className={`${styles.hubButton} ${styles.redHover}`}
+      />
       <HubCard
         label="Traveling"
         href="/SingleHub"
-        className={styles.hubButton}
+        className={`${styles.hubButton} ${styles.coralHover}`}
       />
-      <HubCard label="Martial Arts" href="/Martialarts" className={styles.hubButton} />
-      <HubCard label="Gaming" href="/SingleHub" className={styles.hubButton} />
+      <HubCard
+        label="Martial Arts"
+        href="/MartialArts"
+        className={`${styles.hubButton} ${styles.orangeHover}`}
+      />
+      <HubCard
+        label="Gaming"
+        href="/SingleHub"
+        className={`${styles.hubButton} ${styles.yellowHover}`}
+      />
       <HubCard
         label="Birdwatching"
         href="/SingleHub"
-        className={styles.hubButton}
+        className={`${styles.hubButton} ${styles.redHover}`}
       />
-      <HubCard label="Art" href="/Arts" className={styles.hubButton} />
+      <HubCard
+        label="Art"
+        href="/Arts"
+        className={`${styles.hubButton} ${styles.yellowHover}`}
+      />
     </div>
   );
 };
