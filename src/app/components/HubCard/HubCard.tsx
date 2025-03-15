@@ -6,15 +6,15 @@ import Link from "next/link";
 
 interface HubCardProps {
   label: string;
-  href: string;
+  onClick: () => void;
   className?: string;
 }
 
-const HubCard = ({ label, href, className }: HubCardProps) => {
+const HubCard = ({ label, onClick, className }: HubCardProps) => {
   return (
-    <Link href={href}>
-      <button className={className}>{label}</button>
-    </Link>
+    <button onClick={onClick} className={className}>
+      {label}
+    </button>
   );
 };
 export default HubCard;
