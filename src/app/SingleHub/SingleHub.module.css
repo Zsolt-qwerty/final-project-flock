@@ -29,6 +29,7 @@
   justify-content: flex-start;
   padding-left: 10px;
   box-sizing: border-box;
+  width: 17vw;
 }
 
 .eventCarouselLogoDiv {
@@ -142,7 +143,6 @@
   font-family: "N-Extrabold";
   font-size: 4vw;
   letter-spacing: 2px;
-  max-width: 100%;
 }
 
 .bodyInputBox {

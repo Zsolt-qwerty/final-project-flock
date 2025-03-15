@@ -13,18 +13,20 @@ interface Post {
 }
 
 export default function SingleHub() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [newPostTitle, setNewPostTitle] = useState("");
-  const [newPostContent, setNewPostContent] = useState("");
-  const [currentHub, setCurrentHub] = useState(4);
-  const [currentUser, setCurrentUser] = useState(
-    "3c0e53ff-25d9-4425-830a-6804b3194455"
-  );
-
   const searchParams = useSearchParams();
   const title = searchParams.get("title");
   const color = searchParams.get("color");
   const hubNumber = searchParams.get("hubNumber");
+
+  const initialHub = hubNumber ? parseInt(hubNumber, 10) : 4;
+
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [newPostTitle, setNewPostTitle] = useState("");
+  const [newPostContent, setNewPostContent] = useState("");
+  const [currentHub, setCurrentHub] = useState(initialHub);
+  const [currentUser, setCurrentUser] = useState(
+    "3c0e53ff-25d9-4425-830a-6804b3194455"
+  );
 
   useEffect(() => {
     if (hubNumber) {
@@ -156,7 +158,7 @@ export default function SingleHub() {
       <div className={styles.eventCarouselLogoDiv}>
         <p className={styles.flockLogo}>FLOCK</p>
         <div className={styles.eventCarouselDiv}>
-          <EventCarousel />
+          <EventCarousel hubId={currentHub} />
         </div>
       </div>
     </div>

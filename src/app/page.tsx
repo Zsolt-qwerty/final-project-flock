@@ -72,26 +72,26 @@ export default function Home() {
             onClick={() => handleClick("stamps", "#275aff", 4)}
             className={styles.homeButtonStamps}
           />
-          {/* <HubCard
+          <HubCard
             label="techno"
-            href="/Techno"
+            onClick={() => handleClick("techno", "#ff3f3f", 8)}
             className={styles.homeButtonTechno}
           />
           <HubCard
             label="book club"
-            href="/BookClub"
+            onClick={() => handleClick("book club", "#4b6e49", 7)}
             className={styles.homeButtonBookClub}
           />
           <HubCard
             label="photos"
-            href="/Photography"
+            onClick={() => handleClick("photos", "#feb8b8", 5)}
             className={styles.homeButtonPhotos}
           />
           <HubCard
             label="martial arts"
-            href="/MartialArts"
+            onClick={() => handleClick("martial arts", "#ff8534", 9)}
             className={styles.homeButtonMartialArts}
-          /> */}
+          />
         </div>
       </div>
     </main>
