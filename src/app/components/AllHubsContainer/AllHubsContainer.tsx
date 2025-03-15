@@ -81,7 +81,7 @@ const AllHubContainer = () => {
       />
       <HubCard
         label="Coding"
-        href="/SingleHub"
+        onClick={() => handleClick("techno", "#ff3f3f", 8)}
         className={`${styles.hubButton} ${styles.blueHover}`}
       />
       <HubCard
