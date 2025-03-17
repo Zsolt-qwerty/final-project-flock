@@ -1,40 +1,51 @@
 "use client";
 import HubCard from "../HubCard/HubCard";
 import styles from "./HomeHubCardContainer.module.css";
+import { useRouter } from "next/navigation";
 
-//This is the Hub Container, only for the Home Page
+//This is the Hub Container, only for the Profile
 
-//This file defines a React component called HubContainer.
-// Its role is to serve as a container for HubCard components.
-// includes the HubCard component with an href prop set to /SingleHub.
 const HomeHubContainer = () => {
+  const router = useRouter();
+
+  const handleClick = (title: string, color: string, hubNumber: number) => {
+    const encodedColor = encodeURIComponent(color);
+    router.push(
+      `SingleHub?title=${title}&color=${encodedColor}&hubNumber=${hubNumber}`
+    );
+  };
+
   return (
     <div className={styles.hCardContainer}>
-      <HubCard label="art" href="/Arts" className={styles.homeButtonArt} />
+      <HubCard
+        label="art"
+        onClick={() => handleClick("art", "#ffd955", 6)}
+        className={styles.homeButtonArt}
+      />
 
       <HubCard
         label="stamps"
-        href="/SingleHub"
+        onClick={() => handleClick("stamps", "#275aff", 4)}
         className={styles.homeButtonStamps}
       />
       <HubCard
         label="techno"
-        href="/Techno"
+        onClick={() => handleClick("techno", "#ff3f3f", 8)}
         className={styles.homeButtonTechno}
       />
       <HubCard
         label="book club"
-        href="/BookClub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={styles.homeButtonBookClub}
       />
       <HubCard
         label="photos"
-        href="/Photography"
+        onClick={() => handleClick("photos", "#feb8b8", 5)}
         className={styles.homeButtonPhotos}
       />
       <HubCard
         label="martial arts"
-        href="/MartialArts"
+        onClick={() => handleClick("martial arts", "#ff8534", 9)}
         className={styles.homeButtonMartialArts}
       />
     </div>
