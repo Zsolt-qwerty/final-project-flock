@@ -1,18 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import EventCarousel from "../components/Events/EventsCarousel";
 import styles from "./SingleHub.module.css";
-
 import { useSearchParams } from "next/navigation";
 
 interface Post {
   post_id: string;
   post_text: string;
   post_title: string;
-  comments: string[]; // Add comments array to each post
+  comments: string[];
 }
 
-export default function SingleHub() {
+// Create a separate component that uses useSearchParams
+function SingleHubContent() {
   const searchParams = useSearchParams();
   const title = searchParams.get("title");
   const color = searchParams.get("color");
@@ -162,5 +162,14 @@ export default function SingleHub() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Main component that wraps the content in a Suspense boundary
+export default function SingleHub() {
+  return (
+    <Suspense fallback={<div>Loading hub details...</div>}>
+      <SingleHubContent />
+    </Suspense>
   );
 }
