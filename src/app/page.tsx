@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import styles from "./page.module.css";
 import HubCard from "./components/HubCard/HubCard";
 import SearchBar from "./components/SearchBar/SearchBar";
-// import Navbar from "./components/NavBar/NarBar";
-// This component serves as the main page for the root route (/).
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   useEffect(() => {
@@ -15,7 +14,7 @@ export default function Home() {
       script.src =
         "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
       document.head.appendChild(script);
-      
+
       const chatbotEmbed = document.createElement(
         "zapier-interfaces-chatbot-embed"
       );
@@ -30,6 +29,15 @@ export default function Home() {
       console.error("Error adding chatbot script or embed:", error);
     }
   }, []);
+
+  const router = useRouter();
+
+  const handleClick = (title: string, color: string, hubNumber: number) => {
+    const encodedColor = encodeURIComponent(color);
+    router.push(
+      `SingleHub?title=${title}&color=${encodedColor}&hubNumber=${hubNumber}`
+    );
+  };
 
   return (
     <main className={styles.pageContainer}>
@@ -53,31 +61,35 @@ export default function Home() {
         <p className={styles.trendingHubs}>Trending hubs</p>
 
         <div className={styles.hubDiv}>
-          <HubCard label="art" href="/Arts" className={styles.homeButtonArt} />
+          <HubCard
+            label="art"
+            onClick={() => handleClick("art", "#ffd955", 6)}
+            className={styles.homeButtonArt}
+          />
 
           <HubCard
             label="stamps"
-            href="/SingleHub"
+            onClick={() => handleClick("stamps", "#275aff", 4)}
             className={styles.homeButtonStamps}
           />
           <HubCard
             label="techno"
-            href="/Techno"
+            onClick={() => handleClick("techno", "#ff3f3f", 8)}
             className={styles.homeButtonTechno}
           />
           <HubCard
             label="book club"
-            href="/BookClub"
+            onClick={() => handleClick("book club", "#4b6e49", 7)}
             className={styles.homeButtonBookClub}
           />
           <HubCard
             label="photos"
-            href="/Photography"
+            onClick={() => handleClick("photos", "#feb8b8", 5)}
             className={styles.homeButtonPhotos}
           />
           <HubCard
             label="martial arts"
-            href="/MartialArts"
+            onClick={() => handleClick("martial arts", "#ff8534", 9)}
             className={styles.homeButtonMartialArts}
           />
         </div>

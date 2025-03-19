@@ -1,43 +1,48 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import EventCarousel from "../components/Events/EventsCarousel";
 import styles from "./SingleHub.module.css";
+import { useSearchParams } from "next/navigation";
 
 interface Post {
   post_id: string;
   post_text: string;
   post_title: string;
-  comments: string[]; // Add comments array to each post
+  comments: string[];
 }
-// interface NewPost {
-//     user_id: string;
-//     interest_id: number;
-//     post_title: string
-//     post_text: string;
-// };
 
-export default function SingleHub() {
+// Create a separate component that uses useSearchParams
+function SingleHubContent() {
+  const searchParams = useSearchParams();
+  const title = searchParams.get("title");
+  const color = searchParams.get("color");
+  const hubNumber = searchParams.get("hubNumber");
+
+  const initialHub = hubNumber ? parseInt(hubNumber, 10) : 4;
+
   const [posts, setPosts] = useState<Post[]>([]);
   const [newPostTitle, setNewPostTitle] = useState("");
   const [newPostContent, setNewPostContent] = useState("");
-  // const [newComment, setNewComment] = useState(""); // For managing new comment input
-  const [currentHub, setCurrentHub] = useState(4);
+  const [currentHub, setCurrentHub] = useState(initialHub);
   const [currentUser, setCurrentUser] = useState(
     "3c0e53ff-25d9-4425-830a-6804b3194455"
   );
 
-  // --- for solving deployment issues ---
   useEffect(() => {
-    setCurrentHub(4);
+    if (hubNumber) {
+      const hubNumberInt = parseInt(hubNumber, 10);
+      if (!isNaN(hubNumberInt)) {
+        setCurrentHub(hubNumberInt);
+      }
+    }
     setCurrentUser("3c0e53ff-25d9-4425-830a-6804b3194455");
-  }, []);
-  // --- end of solving deployment issues ---
+  }, [hubNumber]);
 
   // Fetch posts
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("/api/posts?interest_id=4");
+        const response = await fetch(`/api/posts?interest_id=${currentHub}`);
         const fetchedPosts = await response.json();
         setPosts(
           Array.isArray(fetchedPosts)
@@ -53,7 +58,7 @@ export default function SingleHub() {
       }
     };
     fetchPosts();
-  }, []);
+  }, [currentHub]);
 
   const handleAddPost = async () => {
     try {
@@ -104,23 +109,14 @@ export default function SingleHub() {
     }
   };
 
-  // Add new comment to a post
-  // const handleAddComment = (postId: string, comment: string) => {}
-  //     setPosts(
-  //         posts.map((post) =>
-  //             post.post_id === postId
-  //                 ? { ...post, comments: [...post.comments, comment] }
-  //                 : post
-  //         )
-  //     );
-  //     setNewComment(""); // Reset the new comment input field
-  // };
-
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.ForumContainer}>
+      <div
+        className={styles.ForumContainer}
+        style={{ backgroundColor: color as string }}
+      >
         <div className={styles.titleContainer}>
-          <p className={styles.hubName}>stamps</p>
+          <p className={styles.hubName}>{title}</p>
         </div>
         <div className={styles.boardContainer}>
           <div className={styles.scrollContainer}>
@@ -129,36 +125,6 @@ export default function SingleHub() {
                 <div key={post.post_id} className={styles.post}>
                   <h2>{post.post_title}</h2>
                   <p>{post.post_text}</p>
-
-                  {/* Comments Section */}
-                  {/* <div className={styles.CommentsSection}>
-                  <h3>Comments:</h3>
-                  {post.comments.length > 0 ? (
-                    post.comments.map((comment, index) => (
-                      <p
-                        key={`${post.post_id}-${index}`}
-                        className={styles.CommentName}
-                      >
-                        - {comment}
-                      </p>
-                    ))
-                  ) : (
-                    <p>No comments yet.</p>
-                  )} */}
-
-                  {/* Comment input for each post */}
-                  {/* <input
-                                    type="text"
-                                    value={newComment}
-                                    placeholder="Write a comment..."
-                                    onChange={(e) => setNewComment(e.target.value)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === "Enter" && newComment.trim()) {
-                                            handleAddComment(post.post_id, newComment.trim());
-                                        }
-                                    }}
-                                /> */}
-                  {/* </div> */}
                 </div>
               ))}
             </div>
@@ -192,9 +158,18 @@ export default function SingleHub() {
       <div className={styles.eventCarouselLogoDiv}>
         <p className={styles.flockLogo}>FLOCK</p>
         <div className={styles.eventCarouselDiv}>
-          <EventCarousel />
+          <EventCarousel hubId={currentHub} />
         </div>
       </div>
     </div>
+  );
+}
+
+// Main component that wraps the content in a Suspense boundary
+export default function SingleHub() {
+  return (
+    <Suspense fallback={<div>Loading hub details...</div>}>
+      <SingleHubContent />
+    </Suspense>
   );
 }
