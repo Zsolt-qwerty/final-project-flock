@@ -1,113 +1,117 @@
 "use client";
 import HubCard from "../HubCard/HubCard";
 import styles from "./AllHubsContainer.module.css";
+import { useRouter } from "next/navigation";
 
-//This is the Hub Container, only for the All Hubs Page
-
-//This file defines a React component called HubContainer.
-// Its role is to serve as a container for HubCard components.
-// includes the HubCard component with an href prop set to /SingleHub.
 const AllHubContainer = () => {
+  const router = useRouter();
+
+  const handleClick = (title: string, color: string, hubNumber: number) => {
+    const encodedColor = encodeURIComponent(color);
+    router.push(
+      `SingleHub?title=${title}&color=${encodedColor}&hubNumber=${hubNumber}`
+    );
+  };
   return (
     <div className={styles.buttonDiv}>
       <HubCard
         label="Stamps"
-        href="/SingleHub"
+        onClick={() => handleClick("art", "#ffd955", 6)}
         className={`${styles.hubButton} ${styles.blueHover}`}
       />
       <HubCard
         label="Photography"
-        href="/Photography"
+        onClick={() => handleClick("photos", "#feb8b8", 5)}
         className={`${styles.hubButton} ${styles.coralHover}`}
       />
       <HubCard
         label="Painting"
-        href="/SingleHub"
+        onClick={() => handleClick("photos", "#feb8b8", 5)}
         className={`${styles.hubButton} ${styles.yellowHover}`}
       />
       <HubCard
         label="Cooking"
-        href="/SingleHub"
+        onClick={() => handleClick("photos", "#feb8b8", 5)}
         className={`${styles.hubButton} ${styles.greenHover}`}
       />
       <HubCard
         label="Gardening"
-        href="/SingleHub"
+        onClick={() => handleClick("photos", "#feb8b8", 5)}
         className={`${styles.hubButton} ${styles.orangeHover}`}
       />
       <HubCard
         label="Reading"
-        href="/SingleHub"
+        onClick={() => handleClick("photos", "#feb8b8", 5)}
         className={`${styles.hubButton} ${styles.redHover}`}
       />
       <HubCard
         label="Book Club"
-        href="/BookClub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={`${styles.hubButton} ${styles.greenHover}`}
       />
       <HubCard
         label="Music"
-        href="/SingleHub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={`${styles.hubButton} ${styles.blueHover}`}
       />
       <HubCard
         label="Hiking"
-        href="/SingleHub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={`${styles.hubButton} ${styles.coralHover}`}
       />
       <HubCard
         label="Cycling"
-        href="/SingleHub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={`${styles.hubButton} ${styles.yellowHover}`}
       />
       <HubCard
         label="Sewing"
-        href="/SingleHub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={`${styles.hubButton} ${styles.orangeHover}`}
       />
       <HubCard
         label="Cars"
-        href="/SingleHub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={`${styles.hubButton} ${styles.greenHover}`}
       />
       <HubCard
         label="Jazz"
-        href="/SingleHub"
+        onClick={() => handleClick("book club", "#4b6e49", 7)}
         className={`${styles.hubButton} ${styles.redHover}`}
       />
       <HubCard
         label="Coding"
-        href="/SingleHub"
+        onClick={() => handleClick("techno", "#ff3f3f", 8)}
         className={`${styles.hubButton} ${styles.blueHover}`}
       />
       <HubCard
         label="Techno"
-        href="/Techno"
+        onClick={() => handleClick("techno", "#ff3f3f", 8)}
         className={`${styles.hubButton} ${styles.redHover}`}
       />
       <HubCard
         label="Traveling"
-        href="/SingleHub"
+        onClick={() => handleClick("techno", "#ff3f3f", 8)}
         className={`${styles.hubButton} ${styles.coralHover}`}
       />
       <HubCard
         label="Martial Arts"
-        href="/MartialArts"
+        onClick={() => handleClick("martial arts", "#ff8534", 9)}
         className={`${styles.hubButton} ${styles.orangeHover}`}
       />
       <HubCard
         label="Gaming"
-        href="/SingleHub"
+        onClick={() => handleClick("martial arts", "#ff8534", 9)}
         className={`${styles.hubButton} ${styles.yellowHover}`}
       />
       <HubCard
         label="Birdwatching"
-        href="/SingleHub"
+        onClick={() => handleClick("martial arts", "#ff8534", 9)}
         className={`${styles.hubButton} ${styles.redHover}`}
       />
       <HubCard
         label="Art"
-        href="/Arts"
+        onClick={() => handleClick("art", "#ffd955", 6)}
         className={`${styles.hubButton} ${styles.yellowHover}`}
       />
     </div>
