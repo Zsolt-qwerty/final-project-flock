@@ -26,22 +26,22 @@ const AllHubContainer = () => {
       />
       <HubCard
         label="Painting"
-        onClick={() => handleClick("photos", "#feb8b8", 5)}
+        onClick={() => handleClick("painting", "#ffd955", 10)}
         className={`${styles.hubButton} ${styles.yellowHover}`}
       />
       <HubCard
         label="Cooking"
-        onClick={() => handleClick("photos", "#feb8b8", 5)}
+        onClick={() => handleClick("cooking", "#4b6e49", 11)}
         className={`${styles.hubButton} ${styles.greenHover}`}
       />
       <HubCard
         label="Gardening"
-        onClick={() => handleClick("photos", "#feb8b8", 5)}
+        onClick={() => handleClick("gardening", "#ff8534", 12)}
         className={`${styles.hubButton} ${styles.orangeHover}`}
       />
       <HubCard
         label="Reading"
-        onClick={() => handleClick("photos", "#feb8b8", 5)}
+        onClick={() => handleClick("reading", "#ff3f3f", 13)}
         className={`${styles.hubButton} ${styles.redHover}`}
       />
       <HubCard
@@ -51,12 +51,12 @@ const AllHubContainer = () => {
       />
       <HubCard
         label="Music"
-        onClick={() => handleClick("book club", "#4b6e49", 7)}
+        onClick={() => handleClick("music", "#275aff", 15)}
         className={`${styles.hubButton} ${styles.blueHover}`}
       />
       <HubCard
         label="Hiking"
-        onClick={() => handleClick("book club", "#4b6e49", 7)}
+        onClick={() => handleClick("hiking", "#feabab", 16)}
         className={`${styles.hubButton} ${styles.coralHover}`}
       />
       <HubCard
@@ -66,22 +66,22 @@ const AllHubContainer = () => {
       />
       <HubCard
         label="Sewing"
-        onClick={() => handleClick("book club", "#4b6e49", 7)}
+        onClick={() => handleClick("sewing", "#ff8534", 17)}
         className={`${styles.hubButton} ${styles.orangeHover}`}
       />
       <HubCard
         label="Cars"
-        onClick={() => handleClick("book club", "#4b6e49", 7)}
+        onClick={() => handleClick("cars", "#4b6e49", 18)}
         className={`${styles.hubButton} ${styles.greenHover}`}
       />
       <HubCard
         label="Jazz"
-        onClick={() => handleClick("book club", "#4b6e49", 7)}
+        onClick={() => handleClick("jazz", "#ff3f3f", 19)}
         className={`${styles.hubButton} ${styles.redHover}`}
       />
       <HubCard
         label="Coding"
-        onClick={() => handleClick("techno", "#ff3f3f", 8)}
+        onClick={() => handleClick("coding", "#275aff", 20)}
         className={`${styles.hubButton} ${styles.blueHover}`}
       />
       <HubCard
@@ -91,7 +91,7 @@ const AllHubContainer = () => {
       />
       <HubCard
         label="Traveling"
-        onClick={() => handleClick("techno", "#ff3f3f", 8)}
+        onClick={() => handleClick("travelling", "#feabab", 22)}
         className={`${styles.hubButton} ${styles.coralHover}`}
       />
       <HubCard
@@ -101,12 +101,12 @@ const AllHubContainer = () => {
       />
       <HubCard
         label="Gaming"
-        onClick={() => handleClick("martial arts", "#ff8534", 9)}
+        onClick={() => handleClick("gaming", "#ffd955", 23)}
         className={`${styles.hubButton} ${styles.yellowHover}`}
       />
       <HubCard
         label="Birdwatching"
-        onClick={() => handleClick("martial arts", "#ff8534", 9)}
+        onClick={() => handleClick("bird watching", "#ff3f3f", 24)}
         className={`${styles.hubButton} ${styles.redHover}`}
       />
       <HubCard
